@@ -1,16 +1,60 @@
-# React + Vite
+# Web React 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicació web desenvolupada amb React que permet interactuar amb diferents
+funcionalitats de manera dinàmica i eficient. Està pensada com un projecte
+modular i escalable, amb una interfície clara i responsive.
 
-Currently, two official plugins are available:
+## Tecnologies utilitzades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Tecnologia | Ús |
+|---|---|
+| React 18 | Gestió de components i estat |
+| Vite | Entorn de desenvolupament ràpid i build optimitzat |
+| CSS / Tailwind | Estilització de la interfície |
 
-## React Compiler
+## Requisits previs
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js v18 o superior
+- npm (inclòs amb Node.js)
 
-## Expanding the ESLint configuration
+## Instal·lació
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+## Execució en local
+
+```bash
+npm run dev
+```
+
+L'aplicació estarà disponible a `http://localhost:5173`
+
+## Funcionalitats
+
+- Gestió dinàmica de components
+- Navegació entre pàgines
+- Interacció amb l'usuari en temps real
+- Actualització d'estat sense recarregar la pàgina
+- Estructura modular per facilitar l'escalabilitat
+
+## Estructura del projecte
+
+```
+src/
+├── components/    # Components reutilitzables (botons, targetes, etc.)
+├── pages/         # Pàgines principals de l'aplicació
+├── assets/        # Imatges, icones i altres recursos estàtics
+├── styles/        # Fitxers d'estil
+└── App.jsx        # Component arrel de l'aplicació
+```
+
+## Notes
+
+> El projecte segueix una estructura clara per separar responsabilitats.
+> Pensat per a pràctica i aprenentatge de React amb bones pràctiques bàsiques.
+
+## Autor
+
+Rufu-SSS — DAM 2025-2026
