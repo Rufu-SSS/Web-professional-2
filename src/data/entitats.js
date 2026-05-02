@@ -2,7 +2,8 @@ export const entitats = [
   {
     id: 1,
     nom: "Dimoni",
-    tipus: "Entitat infernal",
+    tipus: ["Entitat infernal"],
+    tags: ["Posseïdor", "Exorcisme", "Infernal"],
     descripcio: "Ànimes humanes corrompudes per l'infern. Posseeixen cossos humans i els controlen.",
     comMatar: "Ganivet de l'Infern, exorcisme, Colt",
     apareixA: "T1E1 - Pilot",
@@ -11,7 +12,8 @@ export const entitats = [
   {
     id: 2,
     nom: "Fantasma",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Vinculat a un lloc", "Cremar ossos"],
     descripcio: "Ànimes que no han pogut passar a l'altra banda, sovint lligades a un objecte o lloc.",
     comMatar: "Cremar els seus ossos",
     apareixA: "T1E1 - Pilot",
@@ -20,7 +22,8 @@ export const entitats = [
   {
     id: 3,
     nom: "Wendigo",
-    tipus: "Criatura",
+    tipus: ["Criatura"],
+    tags: ["Foc", "Bosc", "Assassí"],
     descripcio: "Humà transformat en monstre caníbal. Ràpid, fort i intel·ligent. Viu als boscos i caça humans.",
     comMatar: "Foc",
     apareixA: "T1E2 - Wendigo",
@@ -29,7 +32,8 @@ export const entitats = [
   {
     id: 4,
     nom: "Dimoni del Phantom Traveler",
-    tipus: "Entitat infernal",
+    tipus: ["Entitat infernal"],
+    tags: ["Posseïdor", "Exorcisme", "Infernal"],
     descripcio: "Dimoni que corromp els humans amb por a volar. Els posseeix per causar accidents d'avió.",
     comMatar: "Exorcisme",
     apareixA: "T1E4 - Phantom Traveler",
@@ -38,7 +42,8 @@ export const entitats = [
   {
     id: 5,
     nom: "Bloody Mary",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Llegenda urbana", "Vinculat a un lloc", "Assassí"],
     descripcio: "Esperit d'una dona assassinada que es venja dels qui guarden secrets de mort. Apareix als miralls.",
     comMatar: "Reflectir la seva imatge amb un mirall",
     apareixA: "T1E5 - Bloody Mary",
@@ -47,7 +52,8 @@ export const entitats = [
   {
     id: 6,
     nom: "Cambiaformes",
-    tipus: "Criatura",
+    tipus: ["Criatura", "Humà amb poders"],
+    tags: ["Posseïdor", "Assassí", "Plata"],
     descripcio: "Criatura capaç de prendre l'aparença de qualsevol persona, deixant una muda de pell.",
     comMatar: "Bala de plata",
     apareixA: "T1E6 - Skin",
@@ -56,7 +62,8 @@ export const entitats = [
   {
     id: 7,
     nom: "Home del ganxo",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Vinculat a un lloc", "Cremar ossos", "Assassí"],
     descripcio: "Esperit d'un assassí en sèrie executat que continua matant parelles joves en llocs aïllats.",
     comMatar: "Cremar els seus ossos",
     apareixA: "T1E7 - Hook Man",
@@ -65,7 +72,8 @@ export const entitats = [
   {
     id: 8,
     nom: "Insectes",
-    tipus: "Maledicció",
+    tipus: ["Maledicció"],
+    tags: ["Inmatable", "Vinculat a un lloc"],
     descripcio: "Plaga d'insectes enviada com a maledicció d'una tribu nativa americana per protegir les seves terres.",
     comMatar: "No es pot matar, cal abandonar la terra maleïda",
     apareixA: "T1E8 - Bugs",
@@ -74,7 +82,8 @@ export const entitats = [
   {
     id: 9,
     nom: "Poltergeist",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Vinculat a un lloc", "Cremar ossos"],
     descripcio: "Esperit violent que manipula objectes físics i aterroritza els habitants d'una casa.",
     comMatar: "Cremar els seus ossos o l'objecte al qual està lligat",
     apareixA: "T1E9 - Home",
@@ -83,7 +92,8 @@ export const entitats = [
   {
     id: 10,
     nom: "Ànimes torturades",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Vinculat a un lloc", "Cremar ossos", "Assassí"],
     descripcio: "Ànimes atrapades en un asil abandonat, torturades en vida i condemnades a repetir el seu patiment.",
     comMatar: "Cremar els seus ossos",
     apareixA: "T1E10 - Asylum",
@@ -92,7 +102,8 @@ export const entitats = [
   {
     id: 11,
     nom: "Espantaocells",
-    tipus: "Criatura pagana",
+    tipus: ["Criatura pagana"],
+    tags: ["Foc", "Inmatable", "Assassí"],
     descripcio: "Déu pagà que pren la forma d'un espantaocells. Una comunitat li ofereix sacrificis humans cada any a canvi de bones collites.",
     comMatar: "Cremar la imatge original del déu",
     apareixA: "T1E11 - Scarecrow",
@@ -101,7 +112,8 @@ export const entitats = [
   {
     id: 12,
     nom: "Àngel de la mort (Reaper)",
-    tipus: "Entitat",
+    tipus: ["Entitat"],
+    tags: ["Inmatable", "Infernal"],
     descripcio: "Entitat que recull les ànimes dels morts. Pot ser controlat per un curandero per matar persones específiques.",
     comMatar: "No es pot matar, cal trencar el vincle del curandero",
     apareixA: "T1E12 - Faith",
@@ -110,7 +122,8 @@ export const entitats = [
   {
     id: 13,
     nom: "Cotxe fantasma",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Vinculat a un lloc", "Assassí"],
     descripcio: "Esperit d'un conductor mort en accident que posseeix el seu cotxe i continua matant des d'ell.",
     comMatar: "Destruir el cotxe",
     apareixA: "T1E13 - Route 666",
@@ -119,25 +132,28 @@ export const entitats = [
   {
     id: 14,
     nom: "Max, telèpata",
-    tipus: "Humà amb poders",
+    tipus: ["Humà amb poders", "Humans"],
+    tags: ["Humà", "Assassí"],
     descripcio: "Noi amb poders psíquics com els de Sam, capaç de moure objectes amb la ment. El trauma familiar el porta a matar.",
-    comMatar: "No és una criatura, és un humà",
+    comMatar: "Ell mateix es suicida al final de l'episodi",
     apareixA: "T1E14 - Nightmare",
     imatge: "/img/telèpata.jpg"
   },
   {
     id: 15,
     nom: "Família Benders",
-    tipus: "Humans",
+    tipus: ["Humans"],
+    tags: ["Humà", "Assassí"],
     descripcio: "Família de caçadors humans que capturen persones per caçar-les com a animals. El monstre real és l'ésser humà.",
-    comMatar: "No són criatures sobrenaturals",
+    comMatar: "Amb bales normals de pistola o amb cops contundents al cap",
     apareixA: "T1E15 - The Benders",
     imatge: "/img/benders.jpg"
   },
   {
     id: 16,
     nom: "Daevas",
-    tipus: "Criatura",
+    tipus: ["Criatura", "Esperit"],
+    tags: ["Vinculat a un lloc", "Assassí"],
     descripcio: "Criatures que viuen en la foscor i ataquen les seves víctimes usant les ombres com a arma.",
     comMatar: "Llum intensa",
     apareixA: "T1E16 - Shadow",
@@ -146,7 +162,8 @@ export const entitats = [
   {
     id: 17,
     nom: "Mordecai",
-    tipus: "Esperit",
+    tipus: ["Esperit"],
+    tags: ["Llegenda urbana", "Inmatable", "Assassí"],
     descripcio: "Llegenda urbana que cobra vida gràcies a la creença col·lectiva. Mata a qui entra a la casa de la por.",
     comMatar: "Canviar la llegenda perquè la gent deixi de creure-hi",
     apareixA: "T1E17 - Hell House",
@@ -155,7 +172,8 @@ export const entitats = [
   {
     id: 18,
     nom: "Shtriga",
-    tipus: "Criatura",
+    tipus: ["Criatura"],
+    tags: ["Assassí", "Plata"],
     descripcio: "Bruixa que s'alimenta de l'energia vital dels nens mentre dormen, deixant-los en coma.",
     comMatar: "Bala consagrada mentre s'alimenta",
     apareixA: "T1E18 - Something Wicked",
@@ -164,7 +182,8 @@ export const entitats = [
   {
     id: 19,
     nom: "Vampir",
-    tipus: "Criatura",
+    tipus: ["Criatura"],
+    tags: ["Assassí", "Plata"],
     descripcio: "Criatures que s'alimenten de sang. A diferència del mite popular, no els afecta la llum del sol ni l'all.",
     comMatar: "Decapitació amb navalla de plata",
     apareixA: "T1E20 - Dead Man's Blood",
@@ -173,7 +192,8 @@ export const entitats = [
   {
     id: 20,
     nom: "Dimoni Azazel",
-    tipus: "Entitat infernal",
+    tipus: ["Entitat infernal"],
+    tags: ["Posseïdor", "Infernal", "Assassí"],
     descripcio: "Dimoni d'ulls grocs extremadament poderós. Va matar la mare dels Winchester i té un pla misteriós amb nens psíquics.",
     comMatar: "El Colt (arma especial)",
     apareixA: "T1E21 - Salvation",
