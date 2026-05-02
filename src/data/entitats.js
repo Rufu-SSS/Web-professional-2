@@ -3,7 +3,7 @@ export const entitats = [
     id: 1,
     nom: "Dimoni",
     tipus: "Entitat infernal",
-    descripcio: "Ànimes humanes corrompudes per l'infern. Posseeixen cossos humans.",
+    descripcio: "Ànimes humanes corrompudes per l'infern. Posseeixen cossos humans i els controlen.",
     comMatar: "Ganivet de l'Infern, exorcisme, Colt",
     apareixA: "T1E1 - Pilot",
     imatge: "/img/dimoni.jpg"
@@ -21,18 +21,162 @@ export const entitats = [
     id: 3,
     nom: "Wendigo",
     tipus: "Criatura",
-    descripcio: "Humà transformat en monstre caníbal. Ràpid, fort i intel·ligent.",
+    descripcio: "Humà transformat en monstre caníbal. Ràpid, fort i intel·ligent. Viu als boscos i caça humans.",
     comMatar: "Foc",
     apareixA: "T1E2 - Wendigo",
     imatge: "/img/wendigo.jpg"
   },
   {
     id: 4,
+    nom: "Dimoni del Phantom Traveler",
+    tipus: "Entitat infernal",
+    descripcio: "Dimoni que corromp els humans amb por a volar. Els posseeix per causar accidents d'avió.",
+    comMatar: "Exorcisme",
+    apareixA: "T1E4 - Phantom Traveler",
+    imatge: "/img/phantomtraveler.jpg"
+  },
+  {
+    id: 5,
+    nom: "Bloody Mary",
+    tipus: "Esperit",
+    descripcio: "Esperit d'una dona assassinada que es venja dels qui guarden secrets de mort. Apareix als miralls.",
+    comMatar: "Reflectir la seva imatge amb un mirall",
+    apareixA: "T1E5 - Bloody Mary",
+    imatge: "/img/bloodymary.jpg"
+  },
+  {
+    id: 6,
+    nom: "Cambiaformes",
+    tipus: "Criatura",
+    descripcio: "Criatura capaç de prendre l'aparença de qualsevol persona, deixant una muda de pell.",
+    comMatar: "Bala de plata",
+    apareixA: "T1E6 - Skin",
+    imatge: "/img/cambiaformes.jpg"
+  },
+  {
+    id: 7,
+    nom: "Home del ganxo",
+    tipus: "Esperit",
+    descripcio: "Esperit d'un assassí en sèrie executat que continua matant parelles joves en llocs aïllats.",
+    comMatar: "Cremar els seus ossos",
+    apareixA: "T1E7 - Hook Man",
+    imatge: "/img/hookman.jpg"
+  },
+  {
+    id: 8,
+    nom: "Insectes",
+    tipus: "Maledicció",
+    descripcio: "Plaga d'insectes enviada com a maledicció d'una tribu nativa americana per protegir les seves terres.",
+    comMatar: "No es pot matar, cal abandonar la terra maleïda",
+    apareixA: "T1E8 - Bugs",
+    imatge: "/img/insectes.jpg"
+  },
+  {
+    id: 9,
+    nom: "Poltergeist",
+    tipus: "Esperit",
+    descripcio: "Esperit violent que manipula objectes físics i aterroritza els habitants d'una casa.",
+    comMatar: "Cremar els seus ossos o l'objecte al qual està lligat",
+    apareixA: "T1E9 - Home",
+    imatge: "/img/poltergeist.jpg"
+  },
+  {
+    id: 10,
+    nom: "Ànimes torturades",
+    tipus: "Esperit",
+    descripcio: "Ànimes atrapades en un asil abandonat, torturades en vida i condemnades a repetir el seu patiment.",
+    comMatar: "Cremar els seus ossos",
+    apareixA: "T1E10 - Asylum",
+    imatge: "/img/animestorturades.jpg"
+  },
+  {
+    id: 11,
+    nom: "Espantaocells",
+    tipus: "Criatura pagana",
+    descripcio: "Déu pagà que pren la forma d'un espantaocells. Una comunitat li ofereix sacrificis humans cada any a canvi de bones collites.",
+    comMatar: "Cremar la imatge original del déu",
+    apareixA: "T1E11 - Scarecrow",
+    imatge: "/img/espantaocells.jpg"
+  },
+  {
+    id: 12,
     nom: "Àngel de la mort (Reaper)",
     tipus: "Entitat",
-    descripcio: "Entitat que recull les ànimes dels morts.",
-    comMatar: "No es pot matar fàcilment",
+    descripcio: "Entitat que recull les ànimes dels morts. Pot ser controlat per un curandero per matar persones específiques.",
+    comMatar: "No es pot matar, cal trencar el vincle del curandero",
     apareixA: "T1E12 - Faith",
     imatge: "/img/reaper.jpg"
+  },
+  {
+    id: 13,
+    nom: "Cotxe fantasma",
+    tipus: "Esperit",
+    descripcio: "Esperit d'un conductor mort en accident que posseeix el seu cotxe i continua matant des d'ell.",
+    comMatar: "Destruir el cotxe",
+    apareixA: "T1E13 - Route 666",
+    imatge: "/img/cotxefantasma.jpg"
+  },
+  {
+    id: 14,
+    nom: "Max, telèpata",
+    tipus: "Humà amb poders",
+    descripcio: "Noi amb poders psíquics com els de Sam, capaç de moure objectes amb la ment. El trauma familiar el porta a matar.",
+    comMatar: "No és una criatura, és un humà",
+    apareixA: "T1E14 - Nightmare",
+    imatge: "/img/telèpata.jpg"
+  },
+  {
+    id: 15,
+    nom: "Família Benders",
+    tipus: "Humans",
+    descripcio: "Família de caçadors humans que capturen persones per caçar-les com a animals. El monstre real és l'ésser humà.",
+    comMatar: "No són criatures sobrenaturals",
+    apareixA: "T1E15 - The Benders",
+    imatge: "/img/benders.jpg"
+  },
+  {
+    id: 16,
+    nom: "Daevas",
+    tipus: "Criatura",
+    descripcio: "Criatures que viuen en la foscor i ataquen les seves víctimes usant les ombres com a arma.",
+    comMatar: "Llum intensa",
+    apareixA: "T1E16 - Shadow",
+    imatge: "/img/daeva.jpg"
+  },
+  {
+    id: 17,
+    nom: "Mordecai",
+    tipus: "Esperit",
+    descripcio: "Llegenda urbana que cobra vida gràcies a la creença col·lectiva. Mata a qui entra a la casa de la por.",
+    comMatar: "Canviar la llegenda perquè la gent deixi de creure-hi",
+    apareixA: "T1E17 - Hell House",
+    imatge: "/img/mordecai.jpg"
+  },
+  {
+    id: 18,
+    nom: "Shtriga",
+    tipus: "Criatura",
+    descripcio: "Bruixa que s'alimenta de l'energia vital dels nens mentre dormen, deixant-los en coma.",
+    comMatar: "Bala consagrada mentre s'alimenta",
+    apareixA: "T1E18 - Something Wicked",
+    imatge: "/img/shtriga.jpg"
+  },
+  {
+    id: 19,
+    nom: "Vampir",
+    tipus: "Criatura",
+    descripcio: "Criatures que s'alimenten de sang. A diferència del mite popular, no els afecta la llum del sol ni l'all.",
+    comMatar: "Decapitació amb navalla de plata",
+    apareixA: "T1E20 - Dead Man's Blood",
+    imatge: "/img/vampir.jpg"
+  },
+  {
+    id: 20,
+    nom: "Dimoni Azazel",
+    tipus: "Entitat infernal",
+    descripcio: "Dimoni d'ulls grocs extremadament poderós. Va matar la mare dels Winchester i té un pla misteriós amb nens psíquics.",
+    comMatar: "El Colt (arma especial)",
+    apareixA: "T1E21 - Salvation",
+    imatge: "/img/azazel.jpg"
   },
 ];
