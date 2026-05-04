@@ -8,6 +8,7 @@ function Home() {
         <div className="hero-text">
           <h1>Supernatural</h1>
           <p>Primera temporada — 2005</p>
+          <p>Segona temporada — 2006</p>
           <p className="hero-subtitol">Dos germans. Un cotxe. La carretera i tot allò que s'hi amaga.</p>
         </div>
       </div>

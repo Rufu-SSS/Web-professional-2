@@ -35,7 +35,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <span className="navbar-logo">🚗 Supernatural</span>
+      <span className="navbar-logo">Supernatural</span>
       <ul>
         <li>
           <Link to="/">Inici</Link>
