@@ -90,8 +90,9 @@ export const personatges = [
     imatge: "/img/azazel.jpg"
   }
 ];
+
 /*
-  FENT ACTULAMENT
+  FENT ACTUALMENT
   useContext per compartir el filtre actiu entre pàgines 
   -> pàgina main (filtre temporades), pàgina T1 i pàgina T2 (no els cal filtre)
 

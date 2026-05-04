@@ -6,18 +6,18 @@ import EntitatCard from "../components/EntitatCard";
 const entitatT1 = entitats.filter(e => e.temporada === 1);
 
 function Bestiari() {
+  const { temporadaActiva } = useFiltre(); // ← agafa el filtre global
   const [filtreActiu, setFiltreActiu] = useState("Tots");
   const [tagActiu, setTagActiu]       = useState("Tots");
   const [cerca, setCerca]             = useState("");
 
-  const tipus = ["Tots", ...new Set(entitatT1.flatMap(e => e.tipus))];
-  const tags  = ["Tots", ...new Set(entitatT1.flatMap(e => e.tags))];
-
-  const entitatsFiltrades = entitatT1.filter(e => {
-    const coincideixTipus = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
-    const coincideixTag   = tagActiu   === "Tots" || e.tags.includes(tagActiu);
-    const coincideixCerca = e.nom.toLowerCase().includes(cerca.toLowerCase());
-    return coincideixTipus && coincideixTag && coincideixCerca;
+  // Filtra per temporada global + filtres locals
+  const entitatsFiltrades = entitats.filter(e => {
+    const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
+    const coincideixTipus     = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
+    const coincideixTag       = tagActiu === "Tots"    || e.tags.includes(tagActiu);
+    const coincideixCerca     = e.nom.toLowerCase().includes(cerca.toLowerCase());
+    return coincideixTemporada && coincideixTipus && coincideixTag && coincideixCerca;
   });
 
   return (

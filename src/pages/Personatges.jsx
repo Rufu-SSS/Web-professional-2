@@ -1,22 +1,21 @@
 import { useState } from "react";
 import { personatges } from "../data/personatges";
 import PersonatgeCard from "../components/PersonatgeCard";
+import { useFiltre } from "../context/FiltreContext";
 
-function Personatges() {
-  const [rolActiu, setRolActiu]         = useState("Tots");
-  const [temporadaActiva, setTemporada] = useState("Totes");
-  const [cerca, setCerca]               = useState("");
+function Bestiari() {
+  const { temporadaActiva } = useFiltre(); // ← agafa el filtre global
+  const [filtreActiu, setFiltreActiu] = useState("Tots");
+  const [tagActiu, setTagActiu]       = useState("Tots");
+  const [cerca, setCerca]             = useState("");
 
-  // Valors únics per als filtres
-  const rols       = ["Tots", ...new Set(personatges.map(p => p.rol))];
-  const temporades = ["Totes", "1", "2"];
-
-  // Filtra per rol, temporada i cerca
-  const personatgesFiltrats = personatges.filter(p => {
-    const coincideixRol       = rolActiu === "Tots"   || p.rol === rolActiu;
-    const coincideixTemporada = temporadaActiva === "Totes" || p.temporada.includes(Number(temporadaActiva));
-    const coincideixCerca     = p.nom.toLowerCase().includes(cerca.toLowerCase());
-    return coincideixRol && coincideixTemporada && coincideixCerca;
+// Filtra per temporada global + filtres locals
+  const entitatsFiltrades = entitats.filter(e => {
+    const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
+    const coincideixTipus     = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
+    const coincideixTag       = tagActiu === "Tots"    || e.tags.includes(tagActiu);
+    const coincideixCerca     = e.nom.toLowerCase().includes(cerca.toLowerCase());
+    return coincideixTemporada && coincideixTipus && coincideixTag && coincideixCerca;
   });
 
   return (
