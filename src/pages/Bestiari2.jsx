@@ -2,18 +2,18 @@ import { useState } from "react";
 import { entitats } from "../data/entitats";
 import EntitatCard from "../components/EntitatCard";
 
-// Només T1
-const entitatT1 = entitats.filter(e => e.temporada === 1);
+// Filtra només les entitats de temporada 2
+const entitatT2 = entitats.filter(e => e.temporada === 2);
 
-function Bestiari() {
+function Bestiari2() {
   const [filtreActiu, setFiltreActiu] = useState("Tots");
   const [tagActiu, setTagActiu]       = useState("Tots");
   const [cerca, setCerca]             = useState("");
 
-  const tipus = ["Tots", ...new Set(entitatT1.flatMap(e => e.tipus))];
-  const tags  = ["Tots", ...new Set(entitatT1.flatMap(e => e.tags))];
+  const tipus = ["Tots", ...new Set(entitatT2.flatMap(e => e.tipus))];
+  const tags  = ["Tots", ...new Set(entitatT2.flatMap(e => e.tags))];
 
-  const entitatsFiltrades = entitatT1.filter(e => {
+  const entitatsFiltrades = entitatT2.filter(e => {
     const coincideixTipus = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
     const coincideixTag   = tagActiu   === "Tots" || e.tags.includes(tagActiu);
     const coincideixCerca = e.nom.toLowerCase().includes(cerca.toLowerCase());
@@ -22,7 +22,7 @@ function Bestiari() {
 
   return (
     <main className="pagina">
-      <h1>Bestiari — Temporada 1</h1>
+      <h1>Bestiari — Temporada 2</h1>
 
       {/* Buscador */}
       <input
@@ -74,4 +74,4 @@ function Bestiari() {
   );
 }
 
-export default Bestiari;
+export default Bestiari2;

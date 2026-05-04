@@ -1,0 +1,42 @@
+/* Afegeix això al teu fitxer CSS global o Navbar.css */
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  color: white; /* ajusta al teu color de navbar */
+  font-size: 1rem;
+  user-select: none;
+}
+
+.dropdown-toggle:hover {
+  opacity: 0.8;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a; /* ajusta al teu tema */
+  border-radius: 6px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
