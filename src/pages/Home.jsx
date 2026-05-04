@@ -1,6 +1,7 @@
 import { useFiltre } from "../context/FiltreContext";
 
 function Home() {
+  const { temporadaActiva, setTemporadaActiva } = useFiltre();
   return (
     <main>
       {/* Imatge gran de portada */}

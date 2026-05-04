@@ -1,30 +1,40 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { entitats } from "../data/entitats";
 import EntitatCard from "../components/EntitatCard";
-
-// Només T1
-const entitatT1 = entitats.filter(e => e.temporada === 1);
+import { useFiltre } from "../context/FiltreContext";
 
 function Bestiari() {
-  const { temporadaActiva } = useFiltre(); // ← agafa el filtre global
+  const { temporadaActiva } = useFiltre();
   const [filtreActiu, setFiltreActiu] = useState("Tots");
-  const [tagActiu, setTagActiu]       = useState("Tots");
-  const [cerca, setCerca]             = useState("");
+  const [tagActiu, setTagActiu] = useState("Tots");
+  const [cerca, setCerca] = useState("");
 
-  // Filtra per temporada global + filtres locals
+  // Obtenir tipus i tags únics de totes les entitats
+  const { tipusOptions, tagOptions } = useMemo(() => {
+    const tipusSet = new Set();
+    const tagsSet = new Set();
+    entitats.forEach(e => {
+      if (Array.isArray(e.tipus)) e.tipus.forEach(t => tipusSet.add(t));
+      if (Array.isArray(e.tags)) e.tags.forEach(t => tagsSet.add(t));
+    });
+    return {
+      tipusOptions: ["Tots", ...Array.from(tipusSet).sort()],
+      tagOptions: ["Tots", ...Array.from(tagsSet).sort()]
+    };
+  }, []);
+
   const entitatsFiltrades = entitats.filter(e => {
     const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
-    const coincideixTipus     = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
-    const coincideixTag       = tagActiu === "Tots"    || e.tags.includes(tagActiu);
-    const coincideixCerca     = e.nom.toLowerCase().includes(cerca.toLowerCase());
+    const coincideixTipus = filtreActiu === "Tots" || (e.tipus && e.tipus.includes(filtreActiu));
+    const coincideixTag = tagActiu === "Tots" || (e.tags && e.tags.includes(tagActiu));
+    const coincideixCerca = e.nom.toLowerCase().includes(cerca.toLowerCase());
     return coincideixTemporada && coincideixTipus && coincideixTag && coincideixCerca;
   });
 
   return (
     <main className="pagina">
-      <h1>Bestiari — Temporada 1</h1>
+      <h1>Bestiari</h1>
 
-      {/* Buscador */}
       <input
         className="cercador"
         type="text"
@@ -33,10 +43,9 @@ function Bestiari() {
         onChange={e => setCerca(e.target.value)}
       />
 
-      {/* Filtre per tipus */}
       <p className="filtre-label">Tipus:</p>
       <div className="filtres">
-        {tipus.map(t => (
+        {tipusOptions.map(t => (
           <button
             key={t}
             className={`filtre-btn ${filtreActiu === t ? "actiu" : ""}`}
@@ -47,10 +56,9 @@ function Bestiari() {
         ))}
       </div>
 
-      {/* Filtre per tags */}
       <p className="filtre-label">Tags:</p>
       <div className="filtres">
-        {tags.map(t => (
+        {tagOptions.map(t => (
           <button
             key={t}
             className={`filtre-btn tag ${tagActiu === t ? "actiu" : ""}`}

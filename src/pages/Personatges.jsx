@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { personatges } from "../data/personatges";
 import PersonatgeCard from "../components/PersonatgeCard";
 import { useFiltre } from "../context/FiltreContext";
 
-function Bestiari() {
-  const { temporadaActiva } = useFiltre(); // ← agafa el filtre global
-  const [filtreActiu, setFiltreActiu] = useState("Tots");
-  const [tagActiu, setTagActiu]       = useState("Tots");
-  const [cerca, setCerca]             = useState("");
+function Personatges() {
+  const { temporadaActiva } = useFiltre();
+  const [rolActiu, setRolActiu] = useState("Tots");
+  const [tagActiu, setTagActiu] = useState("Tots");
+  const [cerca, setCerca] = useState("");
 
-// Filtra per temporada global + filtres locals
-  const entitatsFiltrades = entitats.filter(e => {
-    const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
-    const coincideixTipus     = filtreActiu === "Tots" || e.tipus.includes(filtreActiu);
-    const coincideixTag       = tagActiu === "Tots"    || e.tags.includes(tagActiu);
-    const coincideixCerca     = e.nom.toLowerCase().includes(cerca.toLowerCase());
-    return coincideixTemporada && coincideixTipus && coincideixTag && coincideixCerca;
+  // Obtenir rols i tags únics dels personatges
+  const { rolsOptions, tagOptions } = useMemo(() => {
+    const rolsSet = new Set();
+    const tagsSet = new Set();
+    personatges.forEach(p => {
+      if (p.rol) rolsSet.add(p.rol);
+      if (Array.isArray(p.tags)) p.tags.forEach(t => tagsSet.add(t));
+    });
+    return {
+      rolsOptions: ["Tots", ...Array.from(rolsSet).sort()],
+      tagOptions: ["Tots", ...Array.from(tagsSet).sort()]
+    };
+  }, []);
+
+  const personatgesFiltrats = personatges.filter(p => {
+    const coincideixTemporada = temporadaActiva === "Totes" || p.temporada === Number(temporadaActiva);
+    const coincideixRol = rolActiu === "Tots" || p.rol === rolActiu;
+    const coincideixTag = tagActiu === "Tots" || (p.tags && p.tags.includes(tagActiu));
+    const coincideixCerca = p.nom.toLowerCase().includes(cerca.toLowerCase());
+    return coincideixTemporada && coincideixRol && coincideixTag && coincideixCerca;
   });
 
   return (
     <main className="pagina">
       <h1>Personatges</h1>
 
-      {/* Buscador */}
       <input
         className="cercador"
         type="text"
@@ -31,10 +43,9 @@ function Bestiari() {
         onChange={e => setCerca(e.target.value)}
       />
 
-      {/* Filtre per rol */}
       <p className="filtre-label">Rol:</p>
       <div className="filtres">
-        {rols.map(r => (
+        {rolsOptions.map(r => (
           <button
             key={r}
             className={`filtre-btn ${rolActiu === r ? "actiu" : ""}`}
@@ -45,21 +56,19 @@ function Bestiari() {
         ))}
       </div>
 
-      {/* Filtre per temporada */}
-      <p className="filtre-label">Temporada:</p>
+      <p className="filtre-label">Tags:</p>
       <div className="filtres">
-        {temporades.map(t => (
+        {tagOptions.map(t => (
           <button
             key={t}
-            className={`filtre-btn ${temporadaActiva === t ? "actiu" : ""}`}
-            onClick={() => setTemporada(t)}
+            className={`filtre-btn tag ${tagActiu === t ? "actiu" : ""}`}
+            onClick={() => setTagActiu(t)}
           >
-            {t === "Totes" ? "Totes" : `T${t}`}
+            {t}
           </button>
         ))}
       </div>
 
-      {/* Resum de resultats */}
       <p className="resultats">
         {personatgesFiltrats.length} personatge{personatgesFiltrats.length !== 1 ? "s" : ""} trobat{personatgesFiltrats.length !== 1 ? "s" : ""}
       </p>
