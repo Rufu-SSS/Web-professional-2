@@ -7,10 +7,15 @@ function Personatges() {
   const [tagActiu, setTagActiu] = useState("Tots");
   const [cerca, setCerca] = useState("");
 
-  // Filtrar només temporada 1 (assumint que temporada és número)
-  const personatgesT1 = personatges.filter(p => p.temporada === 1);
+  // Filtrar personatges que apareixen a temporada 1 (array.includes)
+  const personatgesT1 = personatges.filter(p => {
+    if (Array.isArray(p.temporada)) {
+      return p.temporada.includes(1);
+    }
+    return p.temporada === 1;
+  });
 
-  console.log("Personatges T1:", personatgesT1); // ← per debug
+  console.log("Personatges T1:", personatgesT1);
 
   const { rolsOptions, tagOptions } = useMemo(() => {
     const rolsSet = new Set();

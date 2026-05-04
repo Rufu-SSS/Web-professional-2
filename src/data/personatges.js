@@ -93,10 +93,7 @@ export const personatges = [
 
 /*
   FENT ACTUALMENT
-  useContext per compartir el filtre actiu entre pàgines 
-  -> pàgina main (filtre temporades), pàgina T1 i pàgina T2 (no els cal filtre)
-
-  EXTRA per fer
-  Pàgina Episodis amb la llista de capítols per temporada
-  Pàgina Cerca global que busqui alhora en personatges i entitats
+    Pàgina Episodis amb la llista de capítols per temporada
+  PER FER
+    Pàgina Cerca global que busqui alhora en personatges i entitats
   */

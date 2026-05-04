@@ -195,6 +195,75 @@ body {
   font-style: italic;
 }
 
+/* Descripció toggle */
+.descripcio {
+  margin-top: 0.75rem;
+}
+
+.descripcio-btn {
+  background: transparent;
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 4px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.descripcio-btn:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
+
+.descripcio-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: var(--text);
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Habilitats */
+.habilitats {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.habilitats strong {
+  color: var(--or);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.habilitats ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.habilitats li {
+  margin: 0.2rem 0;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* Millorar rol */
+.rol {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.rol strong {
+  color: var(--or);
+}
+
 /* ────────── HOME - GALERIA ────────── */
 .seccio-titol {
   color: var(--or);
