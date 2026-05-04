@@ -1,42 +1,51 @@
-/* Afegeix això al teu fitxer CSS global o Navbar.css */
-
 .dropdown {
   position: relative;
   cursor: pointer;
+  align-self: center; /* ← no deixa que el li creixi en altura */
 }
 
 .dropdown-toggle {
-  color: white; /* ajusta al teu color de navbar */
-  font-size: 1rem;
+  color: var(--or);
+  font-size: 1.1rem;
   user-select: none;
+  letter-spacing: 1px;
 }
 
 .dropdown-toggle:hover {
-  opacity: 0.8;
+  color: var(--text-clar);
 }
 
 .dropdown-menu {
-  position: absolute;
+  position: absolute; /* ← fora del flux, no mou res */
   top: 100%;
   left: 0;
-  background-color: #1a1a1a; /* ajusta al teu tema */
+  background-color: var(--fons2);
+  border: 1px solid var(--taronja);
   border-radius: 6px;
   list-style: none;
   padding: 8px 0;
   margin: 0;
   min-width: 150px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 9999; /* ← per sobre de tot */
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu li {
+  display: block; /* ← evita que els li del dropdown heretin el flex del navbar ul */
 }
 
 .dropdown-menu li a {
   display: block;
   padding: 8px 16px;
-  color: white;
+  color: var(--or);
   text-decoration: none;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--taronja);
+  color: var(--fons);
 }
