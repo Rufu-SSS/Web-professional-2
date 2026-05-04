@@ -1,7 +1,60 @@
+/* ────────── NAVBAR PRINCIPAL ────────── */
+.navbar {
+  background: var(--fons2);
+  border-bottom: 2px solid var(--taronja);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 9998;
+  flex-wrap: wrap;
+  gap: 1rem;
+  overflow: visible !important; /* Evita talls */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  overflow: visible !important;
+}
+
+.navbar li {
+  overflow: visible !important;
+}
+
+.navbar a {
+  color: var(--or);
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--text-clar);
+}
+
+.navbar-logo {
+  color: var(--taronja);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-logo:hover {
+  color: var(--or);
+}
+
+/* ────────── DROPDOWN TRIGGER ────────── */
 .dropdown {
   position: relative;
   cursor: pointer;
-  align-self: center; 
+  align-self: center;
 }
 
 .dropdown-toggle {
@@ -9,50 +62,80 @@
   font-size: 1.1rem;
   user-select: none;
   letter-spacing: 1px;
+  transition: color 0.2s ease;
 }
 
 .dropdown-toggle:hover {
   color: var(--text-clar);
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--fons2);
+/* ────────── DROPDOWN MENU (PORTAL) ────────── */
+.dropdown-menu-portal {
+  position: fixed;
+  background: var(--fons2);
   border: 1px solid var(--taronja);
-  border-radius: 6px;
-  list-style: none;
-  padding: 8px 0;
+  border-radius: 8px;
+  padding: 0.5rem 0;
   margin: 0;
-  min-width: 150px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  list-style: none;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 9999;
-  display: flex;
-  flex-direction: column;
+  animation: fadeIn 0.15s ease;
 }
 
-.dropdown-menu li {
-  display: block; 
-}
-
-.dropdown-menu li a {
+.dropdown-menu-portal li {
+  padding: 0;
+  margin: 0;
   display: block;
-  padding: 8px 16px;
+}
+
+.dropdown-menu-portal a {
+  display: block;
+  padding: 0.5rem 1rem;
   color: var(--or);
   text-decoration: none;
-  transition: background 0.2s;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
-.dropdown-menu li a:hover {
-  background-color: var(--taronja);
+.dropdown-menu-portal a:hover {
+  background: var(--taronja);
   color: var(--fons);
 }
 
-.dropdown-menu-portal {
-  position: fixed;
-  z-index: 9999;
-  min-width: 150px;
-  max-width: 180px;
+/* ────────── ANIMACIÓ ────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ────────── RESPONSIVE ────────── */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dropdown-menu-portal {
+    min-width: 150px;
+  }
+  
+  .dropdown-menu-portal a {
+    white-space: normal;
+    font-size: 0.9rem;
+  }
 }

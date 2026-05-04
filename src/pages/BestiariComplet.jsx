@@ -1,15 +1,12 @@
 import { useState, useMemo } from "react";
 import { entitats } from "../data/entitats";
 import EntitatCard from "../components/EntitatCard";
-import { useFiltre } from "../context/FiltreContext";
 
-function Bestiari() {
-  const { temporadaActiva } = useFiltre();
+function BestiariComplet() {
   const [filtreActiu, setFiltreActiu] = useState("Tots");
   const [tagActiu, setTagActiu] = useState("Tots");
   const [cerca, setCerca] = useState("");
 
-  // Obtenir tipus i tags únics de TOTES les entitats
   const { tipusOptions, tagOptions } = useMemo(() => {
     const tipusSet = new Set();
     const tagsSet = new Set();
@@ -23,24 +20,16 @@ function Bestiari() {
     };
   }, []);
 
-  // Filtrar entitats - SI temporadaActiva és "Totes", NO filtrar per temporada
   const entitatsFiltrades = entitats.filter(e => {
-    // Si és "Totes", no aplica filtre de temporada
-    const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
     const coincideixTipus = filtreActiu === "Tots" || (e.tipus && e.tipus.includes(filtreActiu));
     const coincideixTag = tagActiu === "Tots" || (e.tags && e.tags.includes(tagActiu));
     const coincideixCerca = e.nom.toLowerCase().includes(cerca.toLowerCase());
-    return coincideixTemporada && coincideixTipus && coincideixTag && coincideixCerca;
+    return coincideixTipus && coincideixTag && coincideixCerca;
   });
-
-  // Títol dinàmic
-  const titol = temporadaActiva === "Totes" 
-    ? "Bestiari - Totes les temporades" 
-    : `Bestiari - Temporada ${temporadaActiva}`;
 
   return (
     <main className="pagina">
-      <h1>{titol}</h1>
+      <h1>Bestiari complet - Totes les temporades</h1>
 
       <input
         className="cercador"
@@ -89,4 +78,4 @@ function Bestiari() {
   );
 }
 
-export default Bestiari;
+export default BestiariComplet;
