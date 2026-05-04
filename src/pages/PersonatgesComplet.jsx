@@ -31,7 +31,10 @@ function PersonatgesComplet() {
 
   return (
     <main className="pagina">
-      <h1>Personatges - Arxiu de personatges</h1>
+      <div className="header-temporada">
+        <h1>📖 Arxiu de personatges</h1>
+        <div className="badge-complet-header">Temporada 1 + 2</div>
+      </div>
       <p className="subtitol">Tots els personatges de totes les temporades</p>
 
       <input

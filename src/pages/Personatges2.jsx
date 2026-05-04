@@ -1,27 +1,45 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { personatges } from "../data/personatges";
 import PersonatgeCard from "../components/PersonatgeCard";
 
-// Filtra només els personatges que apareixen a la temporada 2
-const personatgesT2 = personatges.filter(p => p.temporada.includes(2));
-
 function Personatges2() {
   const [rolActiu, setRolActiu] = useState("Tots");
-  const [cerca, setCerca]       = useState("");
+  const [tagActiu, setTagActiu] = useState("Tots");
+  const [cerca, setCerca] = useState("");
 
-  const rols = ["Tots", ...new Set(personatgesT2.map(p => p.rol))];
+  // CORREGIT: canvia .includes() per ===
+  const personatgesT2 = personatges.filter(p => p.temporada === 2);
+
+  console.log("Personatges T2:", personatgesT2); // ← per debug
+
+  const { rolsOptions, tagOptions } = useMemo(() => {
+    const rolsSet = new Set();
+    const tagsSet = new Set();
+    personatgesT2.forEach(p => {
+      if (p.rol) rolsSet.add(p.rol);
+      if (Array.isArray(p.tags)) p.tags.forEach(t => tagsSet.add(t));
+    });
+    return {
+      rolsOptions: ["Tots", ...Array.from(rolsSet).sort()],
+      tagOptions: ["Tots", ...Array.from(tagsSet).sort()]
+    };
+  }, []);
 
   const personatgesFiltrats = personatgesT2.filter(p => {
-    const coincideixRol   = rolActiu === "Tots" || p.rol === rolActiu;
+    const coincideixRol = rolActiu === "Tots" || p.rol === rolActiu;
+    const coincideixTag = tagActiu === "Tots" || (p.tags && p.tags.includes(tagActiu));
     const coincideixCerca = p.nom.toLowerCase().includes(cerca.toLowerCase());
-    return coincideixRol && coincideixCerca;
+    return coincideixRol && coincideixTag && coincideixCerca;
   });
 
   return (
     <main className="pagina">
-      <h1>Personatges — Temporada 2</h1>
+      <div className="header-temporada">
+        <h1>🎭 Personatges</h1>
+        <div className="badge-temporada-header">Temporada 2 (2006)</div>
+      </div>
+      <p className="subtitol">Els personatges que van aparèixer a la segona temporada</p>
 
-      {/* Buscador */}
       <input
         className="cercador"
         type="text"
@@ -30,16 +48,28 @@ function Personatges2() {
         onChange={e => setCerca(e.target.value)}
       />
 
-      {/* Filtre per rol */}
       <p className="filtre-label">Rol:</p>
       <div className="filtres">
-        {rols.map(r => (
+        {rolsOptions.map(r => (
           <button
             key={r}
             className={`filtre-btn ${rolActiu === r ? "actiu" : ""}`}
             onClick={() => setRolActiu(r)}
           >
             {r}
+          </button>
+        ))}
+      </div>
+
+      <p className="filtre-label">Tags:</p>
+      <div className="filtres">
+        {tagOptions.map(t => (
+          <button
+            key={t}
+            className={`filtre-btn tag ${tagActiu === t ? "actiu" : ""}`}
+            onClick={() => setTagActiu(t)}
+          >
+            {t}
           </button>
         ))}
       </div>

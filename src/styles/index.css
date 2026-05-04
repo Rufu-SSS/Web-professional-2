@@ -362,6 +362,51 @@ body {
   color: var(--or);
 }
 
+/* ────────── HEADER TEMPORADA (BADGES) ────────── */
+.header-temporada {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.header-temporada h1 {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.badge-temporada-header {
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-complet-header {
+  background: var(--or);
+  color: var(--fons);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-temporada {
+  display: inline-block;
+  background: var(--fons);
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
 /* ────────── LOBBY (OPCIONS) ────────── */
 .subtitol {
   text-align: center;
@@ -371,7 +416,7 @@ body {
   font-size: 1.2rem;
 }
 
-/* Bloc principal - Bestiari complet */
+/* Bloc principal - Bestiari complet / Arxiu personatges */
 .opcio-card-principal {
   display: block;
   background: linear-gradient(135deg, var(--fons2) 0%, var(--fons) 100%);
