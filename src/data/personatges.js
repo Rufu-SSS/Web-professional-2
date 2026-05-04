@@ -90,12 +90,12 @@ export const personatges = [
     imatge: "/img/azazel.jpg"
   }
 ];
-/*Afegir filtre a Personatges.jsx igual que ja tens al Bestiari — per temporada o per rol (caçador, aliat, antagonista)
-  Afegir el camp temporada a cada entitat i personatge per poder filtrar per T1/T2/T3...
-  Pàgina de detall — quan cliques una card va a /bestiari/dimoni i veus tota la info ampliada (descripció llarga, episodis, galeria)
-  Buscador — un input que filtra en temps real per nom, tant a Personatges com al Bestiari
-  Pàgines T2 — duplicar entitats.js i personatges.js amb les dades de la segona temporada, i fer Bestiari2.jsx i Personatges2.jsx reutilitzant els mateixos components 
-  useContext per compartir el filtre actiu entre pàgines
+/*
+  FENT ACTULAMENT
+  useContext per compartir el filtre actiu entre pàgines 
+  -> pàgina main (filtre temporades), pàgina T1 i pàgina T2 (no els cal filtre)
+
+  EXTRA per fer
   Pàgina Episodis amb la llista de capítols per temporada
   Pàgina Cerca global que busqui alhora en personatges i entitats
   */

@@ -230,7 +230,7 @@ export const entitats = [
     descripcio: "Esperit d'un granger que va morir en el seu camp. Mata els qui s'atreveixen a entrar al seu territori.",
     comMatar: "Cremar els seus ossos",
     apareixA: "T2E1 - In My Time of Dying",
-    imatge: "/img/harvester.jpg"
+    imatge: "/img/reaper2.jpg"
   },
   {
     id: 22,
@@ -241,7 +241,7 @@ export const entitats = [
     descripcio: "Dimoni que torna possessionant nous cossos. Serveix Azazel i és una amenaça constant per als Winchester.",
     comMatar: "Exorcisme o ganivet de l'Infern",
     apareixA: "T2E14 - Born Under a Bad Sign",
-    imatge: "/img/meg2.jpg"
+    imatge: "/img/meg.jpg"
   },
   {
     id: 23,
