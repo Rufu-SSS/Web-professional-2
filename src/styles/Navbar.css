@@ -8,54 +8,91 @@
   padding: 1rem 2rem;
   position: relative;
   z-index: 9998;
-  flex-wrap: wrap;
   gap: 1rem;
   overflow: visible !important;
-  /* Evita talls */
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  overflow: visible !important;
-}
-
-.navbar li {
-  overflow: visible !important;
-}
-
-.navbar a {
-  color: var(--or);
-  text-decoration: none;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  transition: color 0.2s ease;
-}
-
-.navbar a:hover {
-  color: var(--text-clar);
-}
-
+/* Logo */
 .navbar-logo {
   color: var(--taronja);
   font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navbar-logo:hover {
   color: var(--or);
 }
 
-/* ────────── DROPDOWN TRIGGER ────────── */
+/* Menú principal */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navbar-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu a {
+  color: var(--or);
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-menu a:hover {
+  color: var(--text-clar);
+}
+
+/* Cerca */
+.navbar-cerca {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar-cerca-input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--taronja);
+  background: var(--fons);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.navbar-cerca-btn {
+  background: var(--taronja);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navbar-cerca-btn:hover {
+  background: var(--or);
+}
+
+/* ────────── DROPDOWN ────────── */
 .dropdown {
   position: relative;
   cursor: pointer;
-  align-self: center;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-toggle {
@@ -70,7 +107,6 @@
   color: var(--text-clar);
 }
 
-/* ────────── DROPDOWN MENU (PORTAL) ────────── */
 .dropdown-menu-portal {
   position: fixed;
   background: var(--fons2);
@@ -106,13 +142,11 @@
   color: var(--fons);
 }
 
-/* ────────── ANIMACIÓ ────────── */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(-5px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -120,35 +154,69 @@
 }
 
 /* ────────── RESPONSIVE ────────── */
-@media (max-width: 768px) {
+
+/* Pantalla mitjana - encara cap problema */
+@media (max-width: 900px) {
+  .navbar-menu {
+    gap: 1.5rem;
+  }
+  
+  .navbar-menu a,
+  .dropdown-toggle {
+    font-size: 1rem;
+  }
+}
+
+/* Quan comença a faltar espai - baixa la cerca a sota però centrada */
+@media (max-width: 780px) {
   .navbar {
-    flex-direction: column;
-    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
   }
 
-  .navbar ul {
-    gap: 1rem;
-    flex-wrap: wrap;
+  .navbar-menu {
+    order: 1;           /* Menú primer */
+    width: 100%;
     justify-content: center;
   }
 
+  .navbar-cerca {
+    order: 2;           /* Cerca després */
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navbar-logo {
+    order: 0;           /* Logo primer (però ja ho és) */
+  }
+}
+
+/* Pantalla molt petita - menú en múltiples línies */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-menu {
+    gap: 0.75rem;
+  }
+  
+  .navbar-menu a,
+  .dropdown-toggle {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+  
   .dropdown-menu-portal {
     min-width: 150px;
   }
-
+  
   .dropdown-menu-portal a {
     white-space: normal;
     font-size: 0.9rem;
   }
-}
-
-.navbar-menu li {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-menu li a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
 }

@@ -93,7 +93,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        🚗 Supernatural
+        Supernatural
       </Link>
 
       <ul className="navbar-menu">
@@ -147,7 +147,7 @@ function Navbar() {
         <li>
           <Link to="/episodis">Episodis</Link>
         </li>
-              <li><Link to="/favorits">⭐ Favorits</Link></li>
+        <li><Link to="/favorits">⭐ Favorits</Link></li>
 
       </ul>
 

@@ -1,51 +1,216 @@
-.episodis-llista {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
+/* ────────── EPISODI CARD ────────── */
 .episodi-card {
   background: var(--fons2);
   border: 1px solid var(--taronja);
-  border-radius: 8px;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .episodi-card:hover {
-  transform: translateX(5px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-color: var(--or);
+}
+
+/* Header de la targeta */
+.episodi-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--fons2) 0%, rgba(200, 112, 42, 0.1) 100%);
 }
 
 .episodi-numero {
   background: var(--taronja);
   color: var(--fons);
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: bold;
   min-width: 70px;
   text-align: center;
-  height: fit-content;
 }
 
-.episodi-info {
+.episodi-info-principal {
   flex: 1;
 }
 
-.episodi-info h3 {
-  margin: 0 0 0.5rem 0;
+.episodi-info-principal h3 {
+  margin: 0 0 0.25rem 0;
   color: var(--or);
+  font-size: 1.1rem;
 }
 
-.episodi-info p {
+.episodi-metadades {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.episodi-expandir-btn {
+  background: var(--taronja);
+  border: none;
+  color: var(--fons);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.episodi-expandir-btn:hover {
+  transform: scale(1.1);
+  background: var(--or);
+}
+
+/* Resum (sempre visible) */
+.episodi-resum {
+  padding: 0 1rem 1rem 1rem;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+}
+
+.episodi-descripcio {
   margin: 0;
   color: var(--text);
-  opacity: 0.9;
   font-size: 0.9rem;
   line-height: 1.4;
 }
+
+/* Contingut expandit */
+.episodi-expandit {
+  padding: 1rem;
+  border-top: 1px solid var(--taronja);
+  background: rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.episodi-sinopsi,
+.episodi-personatges,
+.episodi-entitats,
+.episodi-curiositats {
+  margin-bottom: 1rem;
+}
+
+.episodi-expandit h4 {
+  color: var(--or);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.episodi-sinopsi p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Llistat de personatges/entitats */
+.episodi-llistat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.episodi-tag {
+  background: var(--fons);
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.episodi-tag:hover {
+  background: var(--taronja);
+  color: var(--fons);
+  transform: translateY(-1px);
+}
+
+/* Curiositats */
+.episodi-curiositats ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.episodi-curiositats li {
+  margin: 0.25rem 0;
+}
+
+/* Botó d'acció */
+.episodi-actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.episodi-veure-btn {
+  display: inline-block;
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.episodi-veure-btn:hover {
+  background: var(--or);
+  transform: translateX(5px);
+}
+
+/* Responsive */
+/* Estil per al tipus d'entitat */
+.episodi-tag-tipus {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-left: 0.25rem;
+}
+
+/* Estil per quan no hi ha dades addicionals */
+.episodi-card:not(.expandit) .episodi-resum {
+  cursor: pointer;
+}
+
+/* Millora per a mòbils */
+@media (max-width: 480px) {
+  .episodi-metadades {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .episodi-llistat {
+    gap: 0.35rem;
+  }
+  
+  .episodi-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
