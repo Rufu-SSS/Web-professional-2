@@ -5,12 +5,12 @@ import "../styles/episodis.css"; // ← afegeix aquesta línia
 
 function Episodis() {
   const [temporadaActiva, setTemporadaActiva] = useState("Totes");
-  const [cerca, setCerca]                     = useState("");
+  const [cerca, setCerca] = useState("");
 
   const episodisFiltrats = episodis.filter(e => {
     const coincideixTemporada = temporadaActiva === "Totes" || e.temporada === Number(temporadaActiva);
-    const coincideixCerca     = e.titol.toLowerCase().includes(cerca.toLowerCase()) ||
-                                e.descripcio.toLowerCase().includes(cerca.toLowerCase());
+    const coincideixCerca = e.titol.toLowerCase().includes(cerca.toLowerCase()) ||
+      e.descripcio.toLowerCase().includes(cerca.toLowerCase());
     return coincideixTemporada && coincideixCerca;
   });
 

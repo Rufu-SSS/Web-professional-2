@@ -214,3 +214,143 @@
   }
 }
 
+/* ────────── EPISODI DETALL ────────── */
+.episodi-detall {
+  background: var(--fons2);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--taronja);
+}
+
+.episodi-detall-header {
+  border-bottom: 1px solid var(--taronja);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.episodi-detall-header h1 {
+  margin: 0 0 0.5rem 0;
+  color: var(--or);
+  font-size: 2rem;
+}
+
+.episodi-detall-metadades {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.episodi-detall-numero {
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.episodi-detall-sinopsi,
+.episodi-detall-personatges,
+.episodi-detall-entitats,
+.episodi-detall-curiositats {
+  margin-bottom: 2rem;
+}
+
+.episodi-detall-sinopsi h2,
+.episodi-detall-personatges h2,
+.episodi-detall-entitats h2,
+.episodi-detall-curiositats h2 {
+  color: var(--or);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--taronja);
+  padding-left: 1rem;
+}
+
+.episodi-detall-sinopsi p {
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.episodi-detall-llistat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.episodi-detall-tag {
+  background: var(--fons);
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.episodi-detall-tag:hover {
+  background: var(--taronja);
+  color: var(--fons);
+  transform: translateY(-2px);
+}
+
+.episodi-detall-actor,
+.episodi-detall-tipus {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.episodi-detall-curiositats ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.episodi-detall-curiositats li {
+  margin: 0.5rem 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.episodi-detall-actions {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--taronja);
+}
+
+.episodi-detall-tornar {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.episodi-detall-tornar:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .episodi-detall {
+    padding: 1rem;
+  }
+  
+  .episodi-detall-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .episodi-detall-metadades {
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+}
