@@ -35,6 +35,164 @@ body {
   margin-top: 0;
 }
 
+/* ────────── ANIMACIONS ────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Aplicar fadeInUp a les cards */
+.grid > * {
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* Stagger effect - cards */
+.grid > *:nth-child(1) { animation-delay: 0.05s; }
+.grid > *:nth-child(2) { animation-delay: 0.10s; }
+.grid > *:nth-child(3) { animation-delay: 0.15s; }
+.grid > *:nth-child(4) { animation-delay: 0.20s; }
+.grid > *:nth-child(5) { animation-delay: 0.25s; }
+.grid > *:nth-child(6) { animation-delay: 0.30s; }
+.grid > *:nth-child(7) { animation-delay: 0.35s; }
+.grid > *:nth-child(8) { animation-delay: 0.40s; }
+.grid > *:nth-child(9) { animation-delay: 0.45s; }
+.grid > *:nth-child(10) { animation-delay: 0.50s; }
+.grid > *:nth-child(11) { animation-delay: 0.55s; }
+.grid > *:nth-child(12) { animation-delay: 0.60s; }
+
+/* Stagger effect - episodis */
+.episodis-llista > * {
+  animation: fadeInUp 0.3s ease forwards;
+  opacity: 0;
+}
+
+.episodis-llista > *:nth-child(1) { animation-delay: 0.05s; }
+.episodis-llista > *:nth-child(2) { animation-delay: 0.10s; }
+.episodis-llista > *:nth-child(3) { animation-delay: 0.15s; }
+.episodis-llista > *:nth-child(4) { animation-delay: 0.20s; }
+.episodis-llista > *:nth-child(5) { animation-delay: 0.25s; }
+.episodis-llista > *:nth-child(6) { animation-delay: 0.30s; }
+.episodis-llista > *:nth-child(7) { animation-delay: 0.35s; }
+.episodis-llista > *:nth-child(8) { animation-delay: 0.40s; }
+.episodis-llista > *:nth-child(9) { animation-delay: 0.45s; }
+.episodis-llista > *:nth-child(10) { animation-delay: 0.50s; }
+
+/* ────────── LOADING SPINNER ────────── */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--fons2);
+  border-top: 4px solid var(--or);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ────────── PÀGINA 404 ────────── */
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.not-found-content h1 {
+  font-size: 6rem;
+  margin: 0;
+  color: var(--taronja);
+}
+
+.not-found-content h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--or);
+}
+
+.citacio {
+  font-style: italic;
+  margin: 1.5rem 0;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.tornar-btn {
+  display: inline-block;
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tornar-btn:hover {
+  background: var(--or);
+  transform: translateY(-2px);
+}
+
+/* ────────── BREADCRUMB ────────── */
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--taronja);
+}
+
+.breadcrumb a {
+  color: var(--or);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--taronja);
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: var(--text);
+  opacity: 0.6;
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-actual {
+  color: var(--text-clar);
+  font-weight: bold;
+}
+
 /* ────────── NAVBAR ────────── */
 .navbar {
   background: var(--fons2);
@@ -106,7 +264,6 @@ body {
   color: var(--text-clar);
 }
 
-/* Dropdown portal */
 .dropdown-menu-portal {
   position: fixed;
   background: var(--fons2);
@@ -140,17 +297,6 @@ body {
 .dropdown-menu-portal a:hover {
   background: var(--taronja);
   color: var(--fons);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ────────── HOME - HERO ────────── */
@@ -195,75 +341,6 @@ body {
   font-style: italic;
 }
 
-/* Descripció toggle */
-.descripcio {
-  margin-top: 0.75rem;
-}
-
-.descripcio-btn {
-  background: transparent;
-  border: 1px solid var(--taronja);
-  color: var(--or);
-  padding: 4px 10px;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 0.75rem;
-  font-family: inherit;
-  transition: all 0.2s ease;
-  width: 100%;
-}
-
-.descripcio-btn:hover {
-  background: var(--taronja);
-  color: var(--fons);
-}
-
-.descripcio-text {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  color: var(--text);
-  opacity: 0.9;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 8px;
-  border-radius: 6px;
-}
-
-/* Habilitats */
-.habilitats {
-  margin-top: 0.75rem;
-  font-size: 0.8rem;
-}
-
-.habilitats strong {
-  color: var(--or);
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.habilitats ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.habilitats li {
-  margin: 0.2rem 0;
-  color: var(--text);
-  opacity: 0.85;
-}
-
-/* Millorar rol */
-.rol {
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.rol strong {
-  color: var(--or);
-}
-
 /* ────────── HOME - GALERIA ────────── */
 .seccio-titol {
   color: var(--or);
@@ -286,6 +363,7 @@ body {
   border: 1px solid var(--taronja);
   filter: brightness(80%);
   transition: filter 0.3s ease;
+  loading: lazy;
 }
 
 .galeria img:hover {
@@ -374,6 +452,7 @@ body {
 
 /* ────────── TARGETES (CARDS) ────────── */
 .card {
+  position: relative;
   background: var(--fons2);
   border: 1px solid var(--taronja);
   border-radius: 8px;
@@ -391,6 +470,7 @@ body {
   height: 220px;
   object-fit: contain;
   background-color: var(--fons);
+  loading: lazy;
 }
 
 .card-info {
@@ -403,9 +483,106 @@ body {
   font-size: 1.3rem;
 }
 
+/* ────────── BOTÓ FAVORIT ────────── */
+.favorit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--or);
+  transition: all 0.2s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorit-btn:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.favorit-btn.actiu {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* ────────── PERSONATGE CARD EXTRES ────────── */
 .actor {
   color: var(--taronja);
   font-style: italic;
+}
+
+.rol {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.rol strong {
+  color: var(--or);
+}
+
+.descripcio {
+  margin-top: 0.75rem;
+}
+
+.descripcio-btn {
+  background: transparent;
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 4px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.descripcio-btn:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
+
+.descripcio-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: var(--text);
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.habilitats {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.habilitats strong {
+  color: var(--or);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.habilitats ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.habilitats li {
+  margin: 0.2rem 0;
+  color: var(--text);
+  opacity: 0.85;
 }
 
 /* ────────── BADGES ────────── */
@@ -476,6 +653,59 @@ body {
   margin-top: 0.5rem;
 }
 
+/* ────────── EPISODIS ────────── */
+.episodis-llista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.episodi-card {
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episodi-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: var(--or);
+}
+
+.episodi-numero {
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  min-width: 70px;
+  text-align: center;
+  height: fit-content;
+}
+
+.episodi-info {
+  flex: 1;
+}
+
+.episodi-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--or);
+}
+
+.episodi-info p {
+  margin: 0;
+  color: var(--text);
+  opacity: 0.9;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 /* ────────── LOBBY (OPCIONS) ────────── */
 .subtitol {
   text-align: center;
@@ -485,7 +715,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Bloc principal - Bestiari complet / Arxiu personatges */
 .opcio-card-principal {
   display: block;
   background: linear-gradient(135deg, var(--fons2) 0%, var(--fons) 100%);
@@ -544,7 +773,6 @@ body {
   font-weight: bold;
 }
 
-/* Cards normals (T1 i T2) */
 .opcions-bestiary,
 .opcions-personatges {
   display: grid;
@@ -581,7 +809,6 @@ body {
   opacity: 0.8;
 }
 
-/* Info box */
 .info-box {
   background: var(--fons2);
   border-left: 4px solid var(--or);
@@ -647,6 +874,10 @@ body {
     font-size: 0.9rem;
   }
 
+  .breadcrumb {
+    font-size: 0.75rem;
+  }
+
   .pagina {
     padding: 1rem;
   }
@@ -686,5 +917,42 @@ body {
 
   .opcio-card-principal p {
     font-size: 0.95rem;
+  }
+
+  .episodi-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .episodi-numero {
+    align-self: center;
+  }
+
+  .scroll-top {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Pantalles molt petites */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .subtitol {
+    font-size: 0.9rem;
+  }
+
+  .filtre-btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .badge-temporada-header,
+  .badge-complet-header {
+    font-size: 0.7rem;
   }
 }

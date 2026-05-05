@@ -1,7 +1,5 @@
-// components/Navbar.jsx - Versió millorada
-
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import '../styles/Navbar.css';
 
@@ -16,21 +14,19 @@ function DropdownMenu({ links, onClose, triggerRef }) {
     const menuHeight = menuRef.current?.offsetHeight || 200;
     const spaceBelow = window.innerHeight - rect.bottom;
     const spaceAbove = rect.top;
-    
+
     let top = rect.bottom;
     let left = rect.left;
-    
-    // Si no hi ha espai a sota, posa'l a sobre
+
     if (spaceBelow < menuHeight && spaceAbove > menuHeight) {
       top = rect.top - menuHeight;
     }
-    
-    // Si surt per la dreta, ajusta
+
     const menuWidth = menuRef.current?.offsetWidth || 200;
     if (left + menuWidth > window.innerWidth) {
       left = window.innerWidth - menuWidth - 10;
     }
-    
+
     setPosition({ top, left });
   }, [triggerRef]);
 
@@ -60,13 +56,23 @@ function DropdownMenu({ links, onClose, triggerRef }) {
 function Navbar() {
   const [obrirPersonatges, setObrirPersonatges] = useState(false);
   const [obrirBestiari, setObrirBestiari] = useState(false);
+  const [cerca, setCerca] = useState("");
 
   const refPersonatges = useRef(null);
   const refBestiari = useRef(null);
+  const navigate = useNavigate();
+
+  const handleCerca = (e) => {
+    e.preventDefault();
+    if (cerca.trim()) {
+      navigate(`/cerca?q=${encodeURIComponent(cerca.trim())}`);
+      setCerca("");
+    }
+  };
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">Supernatural</Link>
+      <Link to="/" className="navbar-logo">🚗 Supernatural</Link>
       <ul>
         <li><Link to="/">Inici</Link></li>
 
@@ -111,7 +117,22 @@ function Navbar() {
             />
           )}
         </li>
+
+        {/* Episodis */}
+        <li><Link to="/episodis">Episodis</Link></li>
       </ul>
+      <ul style={{ listStyle: 'none' }}>
+        <li style={{ listStyle: 'none' }}><Link to="/favorits">Favorits</Link></li>
+      </ul>      <form className="navbar-cerca" onSubmit={handleCerca}>
+        <input
+          type="text"
+          placeholder="Cerca..."
+          value={cerca}
+          onChange={e => setCerca(e.target.value)}
+          className="navbar-cerca-input"
+        />
+        <button type="submit" className="navbar-cerca-btn">🔍</button>
+      </form>
     </nav>
   );
 }

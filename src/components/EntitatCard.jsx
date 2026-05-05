@@ -1,28 +1,30 @@
+import { useFavorits } from "../hooks/useFavorits";
+
 function EntitatCard({ criatura }) {
+  const { esFavorit, toggleFavorit } = useFavorits("favoritsEntitats");
+
   return (
-    <div className="card criatura">
-      <img src={criatura.imatge} alt={criatura.nom} />
+    <div className="card">
+      <button 
+        className={`favorit-btn ${esFavorit(criatura.id) ? "actiu" : ""}`}
+        onClick={() => toggleFavorit(criatura.id)}
+        aria-label={esFavorit(criatura.id) ? "Eliminar de favorits" : "Afegir a favorits"}
+      >
+        {esFavorit(criatura.id) ? "★" : "☆"}
+      </button>
+      <img 
+        src={criatura.imatge} 
+        alt={criatura.nom} 
+        loading="lazy"
+      />
       <div className="card-info">
         <h2>{criatura.nom}</h2>
-
-        {/* Tipus principals */}
         <div className="badges">
-          {criatura.tipus.map((t, i) => (
-            <span key={i} className="badge">{t}</span>
+          <span className="badge">Temporada {criatura.temporada}</span>
+          {criatura.tipus?.map(t => (
+            <span key={t} className="badge tag">{t}</span>
           ))}
         </div>
-
-        <p>{criatura.descripcio}</p>
-        <p><b>💀 Com matar-la:</b> {criatura.comMatar}</p>
-        <p><b>📺 Apareix a:</b> {criatura.apareixA}</p>
-
-        {/* Tags transversals */}
-        <div className="badges tags">
-          {criatura.tags.map((t, i) => (
-            <span key={i} className="badge tag">{t}</span>
-          ))}
-        </div>
-
       </div>
     </div>
   );

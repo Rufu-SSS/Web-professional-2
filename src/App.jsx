@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -9,8 +10,11 @@ import BestiariMain from './pages/BestiariMain';
 import Bestiari from './pages/Bestiari';
 import Bestiari2 from './pages/Bestiari2';
 import BestiariComplet from './pages/BestiariComplet';
+import Episodis from "./pages/Episodis";
+import NotFound from './pages/NotFound'; // ← IMPORTANT: afegeix aquesta línia
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { FiltreProvider } from './context/FiltreContext';
+import Favorits from './pages/Favorits';
 
 function App() {
   return (
@@ -26,11 +30,19 @@ function App() {
           <Route path="/personatges/temporada2" element={<Personatges2 />} />
           <Route path="/personatges/complet" element={<PersonatgesComplet />} />
           
+          {/* Episodis */}
+          <Route path="/episodis" element={<Episodis />} />
+
           {/* Bestiari */}
           <Route path="/bestiari" element={<BestiariMain />} />
           <Route path="/bestiari/temporada1" element={<Bestiari />} />
           <Route path="/bestiari/temporada2" element={<Bestiari2 />} />
           <Route path="/bestiari/complet" element={<BestiariComplet />} />
+          
+          <Route path="/favorits" element={<Favorits />} />
+
+          {/* Rota 404 - SEMPRE L'ÚLTIMA */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <ScrollToTopButton />
       </FiltreProvider>
