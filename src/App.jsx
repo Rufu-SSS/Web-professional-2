@@ -14,6 +14,7 @@ import Episodis from "./pages/Episodis";
 import NotFound from './pages/NotFound'; // ← IMPORTANT: afegeix aquesta línia
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { FiltreProvider } from './context/FiltreContext';
+import Episodis from "./pages/Episodis";
 
 function App() {
   return (
@@ -29,7 +30,11 @@ function App() {
           <Route path="/personatges/temporada2" element={<Personatges2 />} />
           <Route path="/personatges/complet" element={<PersonatgesComplet />} />
           
+<<<<<<< HEAD
           {/* Episodis */}
+=======
+          {/* Episodis - DESCOMENTAT */}
+>>>>>>> 4ae931d5d606cf4613b96d60ceeda068ee6add74
           <Route path="/episodis" element={<Episodis />} />
 
           {/* Bestiari */}

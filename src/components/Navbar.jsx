@@ -118,7 +118,11 @@ function Navbar() {
           )}
         </li>
 
+<<<<<<< HEAD
         {/* Episodis */}
+=======
+        {/* Episodis — link directe sense desplegable */}
+>>>>>>> 4ae931d5d606cf4613b96d60ceeda068ee6add74
         <li><Link to="/episodis">Episodis</Link></li>
       </ul>
 
