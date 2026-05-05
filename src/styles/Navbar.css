@@ -10,7 +10,8 @@
   z-index: 9998;
   flex-wrap: wrap;
   gap: 1rem;
-  overflow: visible !important; /* Evita talls */
+  overflow: visible !important;
+  /* Evita talls */
 }
 
 .navbar ul {
@@ -111,6 +112,7 @@
     opacity: 0;
     transform: translateY(-5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -133,9 +135,20 @@
   .dropdown-menu-portal {
     min-width: 150px;
   }
-  
+
   .dropdown-menu-portal a {
     white-space: normal;
     font-size: 0.9rem;
   }
+}
+
+.navbar-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }

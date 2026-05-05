@@ -35,7 +35,6 @@ body {
   margin-top: 0;
 }
 
-<<<<<<< HEAD
 /* ────────── ANIMACIONS ────────── */
 @keyframes fadeIn {
   from {
@@ -102,10 +101,6 @@ body {
 .episodis-llista > *:nth-child(10) { animation-delay: 0.50s; }
 
 /* ────────── LOADING SPINNER ────────── */
-=======
-/* Spinner menu */
-/* Loading Spinner */
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 .loading-spinner {
   display: flex;
   flex-direction: column;
@@ -124,22 +119,7 @@ body {
   animation: spin 1s linear infinite;
 }
 
-<<<<<<< HEAD
 /* ────────── PÀGINA 404 ────────── */
-=======
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Pàgina no trobada */
-/* Pàgina 404 */
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 .not-found {
   display: flex;
   align-items: center;
@@ -183,7 +163,6 @@ body {
   transform: translateY(-2px);
 }
 
-<<<<<<< HEAD
 /* ────────── BREADCRUMB ────────── */
 .breadcrumb {
   margin-bottom: 1.5rem;
@@ -214,8 +193,6 @@ body {
   font-weight: bold;
 }
 
-=======
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 /* ────────── NAVBAR ────────── */
 .navbar {
   background: var(--fons2);
@@ -228,7 +205,6 @@ body {
   z-index: 9998;
   flex-wrap: wrap;
   gap: 1rem;
-  overflow: visible !important;
 }
 
 .navbar ul {
@@ -238,11 +214,6 @@ body {
   margin: 0;
   padding: 0;
   align-items: center;
-  overflow: visible !important;
-}
-
-.navbar li {
-  overflow: visible !important;
 }
 
 .navbar a {
@@ -322,21 +293,35 @@ body {
   color: var(--fons);
 }
 
-<<<<<<< HEAD
-=======
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ────────── CERCADOR ────────── */
+.navbar-cerca {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
+.navbar-cerca-input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--taronja);
+  background: var(--fons);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.navbar-cerca-btn {
+  background: var(--taronja);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navbar-cerca-btn:hover {
+  background: var(--or);
+}
+
 /* ────────── HOME - HERO ────────── */
 .hero {
   position: relative;
@@ -401,7 +386,6 @@ body {
   border: 1px solid var(--taronja);
   filter: brightness(80%);
   transition: filter 0.3s ease;
-  loading: lazy;
 }
 
 .galeria img:hover {
@@ -508,7 +492,6 @@ body {
   height: 220px;
   object-fit: contain;
   background-color: var(--fons);
-  loading: lazy;
 }
 
 .card-info {
@@ -646,7 +629,7 @@ body {
   color: var(--or);
 }
 
-/* ────────── HEADER TEMPORADA (BADGES) ────────── */
+/* ────────── HEADER TEMPORADA ────────── */
 .header-temporada {
   display: flex;
   align-items: center;
@@ -866,7 +849,7 @@ body {
   opacity: 0.8;
 }
 
-/* ────────── Hover cards episodi ────────── */
+/* ────────── Hover cards ────────── */
 .episodi-card:hover,
 .opcio-card:hover,
 .opcio-card-principal:hover {

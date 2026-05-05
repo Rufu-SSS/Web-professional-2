@@ -18,13 +18,20 @@ function DropdownMenu({ links, onClose, triggerRef }) {
     let top = rect.bottom;
     let left = rect.left;
 
+    // Si no hi ha espai a sota, mostra a sobre
     if (spaceBelow < menuHeight && spaceAbove > menuHeight) {
       top = rect.top - menuHeight;
     }
 
+    // Evita que surti fora de la pantalla per la dreta
     const menuWidth = menuRef.current?.offsetWidth || 200;
     if (left + menuWidth > window.innerWidth) {
       left = window.innerWidth - menuWidth - 10;
+    }
+
+    // Evita que surti fora per l'esquerra
+    if (left < 10) {
+      left = 10;
     }
 
     setPosition({ top, left });
@@ -38,14 +45,16 @@ function DropdownMenu({ links, onClose, triggerRef }) {
       className="dropdown-menu dropdown-menu-portal"
       style={{
         position: "fixed",
-        top: position.top + "px",
-        left: position.left + "px",
+        top: `${position.top}px`,
+        left: `${position.left}px`,
         zIndex: 9999,
       }}
     >
-      {links.map(l => (
-        <li key={l.to}>
-          <Link to={l.to} onClick={onClose}>{l.text}</Link>
+      {links.map((link) => (
+        <li key={link.to}>
+          <Link to={link.to} onClick={onClose}>
+            {link.text}
+          </Link>
         </li>
       ))}
     </ul>,
@@ -55,21 +64,12 @@ function DropdownMenu({ links, onClose, triggerRef }) {
 
 function Navbar() {
   const [obrirPersonatges, setObrirPersonatges] = useState(false);
-<<<<<<< HEAD
   const [obrirBestiari, setObrirBestiari] = useState(false);
   const [cerca, setCerca] = useState("");
 
   const refPersonatges = useRef(null);
   const refBestiari = useRef(null);
   const navigate = useNavigate();
-=======
-  const [obrirBestiari, setObrirBestiari]       = useState(false);
-  const [cerca, setCerca]                        = useState("");
-
-  const refPersonatges = useRef(null);
-  const refBestiari    = useRef(null);
-  const navigate       = useNavigate();
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 
   const handleCerca = (e) => {
     e.preventDefault();
@@ -79,11 +79,27 @@ function Navbar() {
     }
   };
 
+  // Tanca els dropdowns quan es fa clic a qualsevol lloc
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setObrirPersonatges(false);
+      setObrirBestiari(false);
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">🚗 Supernatural</Link>
-      <ul>
-        <li><Link to="/">Inici</Link></li>
+      <Link to="/" className="navbar-logo">
+        🚗 Supernatural
+      </Link>
+
+      <ul className="navbar-menu">
+        <li>
+          <Link to="/">Inici</Link>
+        </li>
 
         {/* Desplegable Personatges */}
         <li
@@ -98,7 +114,7 @@ function Navbar() {
               triggerRef={refPersonatges}
               onClose={() => setObrirPersonatges(false)}
               links={[
-                { to: "/personatges",            text: "Totes les temporades" },
+                { to: "/personatges", text: "Totes les temporades" },
                 { to: "/personatges/temporada1", text: "Temporada 1" },
                 { to: "/personatges/temporada2", text: "Temporada 2" },
               ]}
@@ -119,7 +135,7 @@ function Navbar() {
               triggerRef={refBestiari}
               onClose={() => setObrirBestiari(false)}
               links={[
-                { to: "/bestiari",            text: "Totes les temporades" },
+                { to: "/bestiari", text: "Totes les temporades" },
                 { to: "/bestiari/temporada1", text: "Temporada 1" },
                 { to: "/bestiari/temporada2", text: "Temporada 2" },
               ]}
@@ -127,33 +143,26 @@ function Navbar() {
           )}
         </li>
 
-<<<<<<< HEAD
         {/* Episodis */}
-        <li><Link to="/episodis">Episodis</Link></li>
-      </ul>
-      <ul style={{ listStyle: 'none' }}>
-        <li style={{ listStyle: 'none' }}><Link to="/favorits">Favorits</Link></li>
-      </ul>      <form className="navbar-cerca" onSubmit={handleCerca}>
-=======
-<<<<<<< HEAD
-        {/* Episodis */}
-=======
-        {/* Episodis — link directe sense desplegable */}
->>>>>>> 4ae931d5d606cf4613b96d60ceeda068ee6add74
-        <li><Link to="/episodis">Episodis</Link></li>
+        <li>
+          <Link to="/episodis">Episodis</Link>
+        </li>
+              <li><Link to="/favorits">⭐ Favorits</Link></li>
+
       </ul>
 
-      {/* Cerca global — fora del ul per no interferir amb els dropdowns */}
+      {/* Cerca global */}
       <form className="navbar-cerca" onSubmit={handleCerca}>
->>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
         <input
           type="text"
           placeholder="Cerca..."
           value={cerca}
-          onChange={e => setCerca(e.target.value)}
+          onChange={(e) => setCerca(e.target.value)}
           className="navbar-cerca-input"
         />
-        <button type="submit" className="navbar-cerca-btn">🔍</button>
+        <button type="submit" className="navbar-cerca-btn">
+          🔍
+        </button>
       </form>
     </nav>
   );
