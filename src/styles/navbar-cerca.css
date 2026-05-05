@@ -1,0 +1,50 @@
+.navbar-cerca {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--taronja);
+  border-radius: 20px;
+  padding: 0.2rem 0.4rem 0.2rem 0.8rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.navbar-cerca:focus-within {
+  border-color: var(--or);
+  box-shadow: 0 0 8px rgba(212, 168, 67, 0.3);
+}
+
+.navbar-cerca-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-clar);
+  font-family: 'Georgia', serif;
+  font-size: 0.9rem;
+  width: 140px;
+  transition: width 0.3s ease;
+}
+
+.navbar-cerca:focus-within .navbar-cerca-input {
+  width: 200px;
+}
+
+.navbar-cerca-input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.navbar-cerca-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.2rem 0.3rem;
+  color: var(--taronja);
+  transition: color 0.2s, transform 0.15s;
+  line-height: 1;
+}
+
+.navbar-cerca-btn:hover {
+  color: var(--or);
+  transform: scale(1.15);
+}
