@@ -35,6 +35,7 @@ body {
   margin-top: 0;
 }
 
+<<<<<<< HEAD
 /* ────────── ANIMACIONS ────────── */
 @keyframes fadeIn {
   from {
@@ -101,6 +102,10 @@ body {
 .episodis-llista > *:nth-child(10) { animation-delay: 0.50s; }
 
 /* ────────── LOADING SPINNER ────────── */
+=======
+/* Spinner menu */
+/* Loading Spinner */
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 .loading-spinner {
   display: flex;
   flex-direction: column;
@@ -119,7 +124,22 @@ body {
   animation: spin 1s linear infinite;
 }
 
+<<<<<<< HEAD
 /* ────────── PÀGINA 404 ────────── */
+=======
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pàgina no trobada */
+/* Pàgina 404 */
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 .not-found {
   display: flex;
   align-items: center;
@@ -163,6 +183,7 @@ body {
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
 /* ────────── BREADCRUMB ────────── */
 .breadcrumb {
   margin-bottom: 1.5rem;
@@ -193,6 +214,8 @@ body {
   font-weight: bold;
 }
 
+=======
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 /* ────────── NAVBAR ────────── */
 .navbar {
   background: var(--fons2);
@@ -299,6 +322,21 @@ body {
   color: var(--fons);
 }
 
+<<<<<<< HEAD
+=======
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 /* ────────── HOME - HERO ────────── */
 .hero {
   position: relative;
@@ -826,6 +864,14 @@ body {
   margin-bottom: 0;
   color: var(--text);
   opacity: 0.8;
+}
+
+/* ────────── Hover cards episodi ────────── */
+.episodi-card:hover,
+.opcio-card:hover,
+.opcio-card-principal:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
 }
 
 /* ────────── SCROLL TOP ────────── */

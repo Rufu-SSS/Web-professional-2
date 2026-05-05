@@ -55,12 +55,21 @@ function DropdownMenu({ links, onClose, triggerRef }) {
 
 function Navbar() {
   const [obrirPersonatges, setObrirPersonatges] = useState(false);
+<<<<<<< HEAD
   const [obrirBestiari, setObrirBestiari] = useState(false);
   const [cerca, setCerca] = useState("");
 
   const refPersonatges = useRef(null);
   const refBestiari = useRef(null);
   const navigate = useNavigate();
+=======
+  const [obrirBestiari, setObrirBestiari]       = useState(false);
+  const [cerca, setCerca]                        = useState("");
+
+  const refPersonatges = useRef(null);
+  const refBestiari    = useRef(null);
+  const navigate       = useNavigate();
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
 
   const handleCerca = (e) => {
     e.preventDefault();
@@ -89,7 +98,7 @@ function Navbar() {
               triggerRef={refPersonatges}
               onClose={() => setObrirPersonatges(false)}
               links={[
-                { to: "/personatges", text: "Totes les temporades" },
+                { to: "/personatges",            text: "Totes les temporades" },
                 { to: "/personatges/temporada1", text: "Temporada 1" },
                 { to: "/personatges/temporada2", text: "Temporada 2" },
               ]}
@@ -110,7 +119,7 @@ function Navbar() {
               triggerRef={refBestiari}
               onClose={() => setObrirBestiari(false)}
               links={[
-                { to: "/bestiari", text: "Totes les temporades" },
+                { to: "/bestiari",            text: "Totes les temporades" },
                 { to: "/bestiari/temporada1", text: "Temporada 1" },
                 { to: "/bestiari/temporada2", text: "Temporada 2" },
               ]}
@@ -118,12 +127,25 @@ function Navbar() {
           )}
         </li>
 
+<<<<<<< HEAD
         {/* Episodis */}
         <li><Link to="/episodis">Episodis</Link></li>
       </ul>
       <ul style={{ listStyle: 'none' }}>
         <li style={{ listStyle: 'none' }}><Link to="/favorits">Favorits</Link></li>
       </ul>      <form className="navbar-cerca" onSubmit={handleCerca}>
+=======
+<<<<<<< HEAD
+        {/* Episodis */}
+=======
+        {/* Episodis — link directe sense desplegable */}
+>>>>>>> 4ae931d5d606cf4613b96d60ceeda068ee6add74
+        <li><Link to="/episodis">Episodis</Link></li>
+      </ul>
+
+      {/* Cerca global — fora del ul per no interferir amb els dropdowns */}
+      <form className="navbar-cerca" onSubmit={handleCerca}>
+>>>>>>> 1369e5f1d6f50de20e9fb37e21948764995a7ff2
         <input
           type="text"
           placeholder="Cerca..."
