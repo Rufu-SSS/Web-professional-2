@@ -11,6 +11,7 @@ import Bestiari2 from './pages/Bestiari2';
 import BestiariComplet from './pages/BestiariComplet';
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { FiltreProvider } from './context/FiltreContext';
+import Episodis from "./pages/Episodis";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path="/personatges/temporada2" element={<Personatges2 />} />
           <Route path="/personatges/complet" element={<PersonatgesComplet />} />
           
+          {/* Episodis - DESCOMENTAT */}
+          <Route path="/episodis" element={<Episodis />} />
+
           {/* Bestiari */}
           <Route path="/bestiari" element={<BestiariMain />} />
           <Route path="/bestiari/temporada1" element={<Bestiari />} />

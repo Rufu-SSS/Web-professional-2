@@ -1,5 +1,3 @@
-// components/Navbar.jsx - Versió millorada
-
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
@@ -16,21 +14,19 @@ function DropdownMenu({ links, onClose, triggerRef }) {
     const menuHeight = menuRef.current?.offsetHeight || 200;
     const spaceBelow = window.innerHeight - rect.bottom;
     const spaceAbove = rect.top;
-    
+
     let top = rect.bottom;
     let left = rect.left;
-    
-    // Si no hi ha espai a sota, posa'l a sobre
+
     if (spaceBelow < menuHeight && spaceAbove > menuHeight) {
       top = rect.top - menuHeight;
     }
-    
-    // Si surt per la dreta, ajusta
+
     const menuWidth = menuRef.current?.offsetWidth || 200;
     if (left + menuWidth > window.innerWidth) {
       left = window.innerWidth - menuWidth - 10;
     }
-    
+
     setPosition({ top, left });
   }, [triggerRef]);
 
@@ -66,7 +62,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">Supernatural</Link>
+      <Link to="/" className="navbar-logo">🚗 Supernatural</Link>
       <ul>
         <li><Link to="/">Inici</Link></li>
 
@@ -111,6 +107,9 @@ function Navbar() {
             />
           )}
         </li>
+
+        {/* Episodis — link directe sense desplegable */}
+        <li><Link to="/episodis">Episodis</Link></li>
       </ul>
     </nav>
   );
