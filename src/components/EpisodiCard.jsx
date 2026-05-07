@@ -4,115 +4,109 @@ import { Link } from "react-router-dom";
 function EpisodiCard({ episodi }) {
   const [expandit, setExpandit] = useState(false);
 
-  // Funció per mostrar resum sense spoiler
   const obtenirResumSenseSpoiler = (descripcio) => {
-    // Mostra només fins al primer punt o màxim 120 caràcters
     if (descripcio.length <= 120) return descripcio;
-    
     const primerPunt = descripcio.indexOf(".");
-    if (primerPont > 0 && primerPunt <= 120) {
+    if (primerPunt > 0 && primerPunt <= 120) {
       return descripcio.substring(0, primerPunt + 1);
     }
     return descripcio.substring(0, 120) + "...";
   };
 
+  const handleExpandirClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpandit(!expandit);
+  };
+
   return (
-    <div className={`episodi-card ${expandit ? "expandit" : ""}`}>
-      <div className="episodi-card-header">
-        <div className="episodi-numero">
-          {episodi.numero}
-        </div>
-        <div className="episodi-info-principal">
-          <h3>{episodi.titol}</h3>
-          <div className="episodi-metadades">
-            <span>📅 {episodi.dataEstrena || "Data desconeguda"}</span>
-            <span>⏱️ {episodi.durada || "45 min"}</span>
-            {episodi.valoracio && <span>⭐ {episodi.valoracio}</span>}
+    <div className="episodi-card-wrapper">
+      <div className={`episodi-card ${expandit ? "expandit" : ""}`}>
+        <div className="episodi-card-header">
+          <div className="episodi-numero">{episodi.numero}</div>
+          <div className="episodi-info-principal">
+            <h3>{episodi.titol}</h3>
+            <div className="episodi-metadades">
+              <span>📅 {episodi.dataEstrena || "Data desconeguda"}</span>
+              <span>⏱️ {episodi.durada || "45 min"}</span>
+              {episodi.valoracio && <span>⭐ {episodi.valoracio}</span>}
+            </div>
           </div>
+          <button 
+            className="episodi-expandir-btn"
+            onClick={handleExpandirClick}
+            aria-label={expandit ? "Tancar" : "Veure més"}
+          >
+            {expandit ? "▲" : "▼"}
+          </button>
         </div>
-        <button 
-          className="episodi-expandir-btn"
-          onClick={() => setExpandit(!expandit)}
-          aria-label={expandit ? "Tancar" : "Veure més"}
-        >
-          {expandit ? "▲" : "▼"}
-        </button>
-      </div>
 
-      {/* Resum sense spoiler - sempre visible */}
-      <div className="episodi-resum">
-        <p className="episodi-descripcio">{obtenirResumSenseSpoiler(episodi.descripcio)}</p>
-      </div>
+        <div className="episodi-resum">
+          <p className="episodi-descripcio">{obtenirResumSenseSpoiler(episodi.descripcio)}</p>
+        </div>
 
-      {/* Contingut expandit - només visible quan es clica */}
-      {expandit && (
-        <div className="episodi-expandit">
-          {/* Sinopsi completa */}
-          <div className="episodi-sinopsi">
-            <h4>📖 Sinopsi completa</h4>
-            <p>{episodi.descripcio}</p>
-          </div>
+        {expandit && (
+          <div className="episodi-expandit">
+            <div className="episodi-sinopsi">
+              <h4>📖 Sinopsi completa</h4>
+              <p>{episodi.descripcio}</p>
+            </div>
 
-          {/* Personatges que apareixen */}
-          {episodi.personatges && episodi.personatges.length > 0 && (
-            <div className="episodi-personatges">
-              <h4>👥 Personatges</h4>
-              <div className="episodi-llistat">
-                {episodi.personatges.map(personatge => (
-                  <Link 
-                    key={personatge.id} 
-                    to={`/personatges?search=${encodeURIComponent(personatge.nom)}`}
-                    className="episodi-tag"
-                  >
-                    {personatge.nom}
-                  </Link>
-                ))}
+            {episodi.personatges && episodi.personatges.length > 0 && (
+              <div className="episodi-personatges">
+                <h4>👥 Personatges</h4>
+                <div className="episodi-llistat">
+                  {episodi.personatges.map(personatge => (
+                    <Link 
+                      key={personatge.id} 
+                      to={`/personatge/${personatge.id}`}
+                      className="episodi-tag"
+                    >
+                      {personatge.nom}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Entitats que apareixen */}
-          {episodi.entitats && episodi.entitats.length > 0 && (
-            <div className="episodi-entitats">
-              <h4>🐉 Entitats / Bestiari</h4>
-              <div className="episodi-llistat">
-                {episodi.entitats.map(entitat => (
-                  <Link 
-                    key={entitat.id} 
-                    to={`/bestiari?search=${encodeURIComponent(entitat.nom)}`}
-                    className="episodi-tag"
-                  >
-                    {entitat.nom}
-                    {entitat.tipus && <span className="episodi-tag-tipus">({entitat.tipus})</span>}
-                  </Link>
-                ))}
+            {episodi.entitats && episodi.entitats.length > 0 && (
+              <div className="episodi-entitats">
+                <h4>🐉 Entitats / Bestiari</h4>
+                <div className="episodi-llistat">
+                  {episodi.entitats.map(entitat => (
+                    <Link 
+                      key={entitat.id} 
+                      to={`/entitat/${entitat.id}`}
+                      className="episodi-tag"
+                    >
+                      {entitat.nom}
+                      {entitat.tipus && <span className="episodi-tag-tipus">({entitat.tipus})</span>}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Curiositats */}
-          {episodi.curiositats && episodi.curiositats.length > 0 && (
-            <div className="episodi-curiositats">
-              <h4>💡 Curiositats</h4>
-              <ul>
-                {episodi.curiositats.map((curiositat, index) => (
-                  <li key={index}>{curiositat}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+            {episodi.curiositats && episodi.curiositats.length > 0 && (
+              <div className="episodi-curiositats">
+                <h4>💡 Curiositats</h4>
+                <ul>
+                  {episodi.curiositats.map((curiositat, index) => (
+                    <li key={index}>{curiositat}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-          {/* Botó per anar a més informació */}
-          <div className="episodi-actions">
-            <Link 
-              to={`/episodi/${episodi.id}`} 
-              className="episodi-veure-btn"
-            >
-              Més informació →
-            </Link>
+            {/* Botó "Més informació" - ARA ÉS L'ÚNIC ENLLAÇ EXTERIOR */}
+            <div className="episodi-actions">
+              <Link to={`/episodis/${episodi.id}`} className="episodi-veure-btn">
+                Més informació →
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
