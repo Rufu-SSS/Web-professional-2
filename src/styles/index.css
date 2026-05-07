@@ -1148,6 +1148,7 @@ body {
 .episodi-tag:hover {
   background: var(--taronja);
   color: var(--fons);
+<<<<<<< HEAD
 }
 
 /* Pàgines de detall */
@@ -1270,4 +1271,6 @@ body {
 .detall-tornar:hover {
   background: var(--taronja);
   color: var(--fons);
+=======
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
 }

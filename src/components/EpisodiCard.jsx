@@ -13,6 +13,7 @@ function EpisodiCard({ episodi }) {
     return descripcio.substring(0, 120) + "...";
   };
 
+<<<<<<< HEAD
   const handleExpandirClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -23,10 +24,20 @@ function EpisodiCard({ episodi }) {
     e.stopPropagation(); // Atura la propagació al Link pare
   };
 
+=======
+  // Evitar que el click al botó d'expandir navegui
+  const handleExpandirClick = (e) => {
+    e.preventDefault(); // Evita la navegació del Link
+    e.stopPropagation(); // Evita que el click es propagui
+    setExpandit(!expandit);
+  };
+
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
   return (
     <Link to={`/episodis/${episodi.id}`} className="episodi-card-link">
       <div className={`episodi-card ${expandit ? "expandit" : ""}`}>
         <div className="episodi-card-header">
+<<<<<<< HEAD
           <div className="episodi-numero">{episodi.numero}</div>
           <div className="episodi-info-principal">
             <h3>{episodi.titol}</h3>
@@ -36,6 +47,19 @@ function EpisodiCard({ episodi }) {
               {episodi.valoracio && <span>⭐ {episodi.valoracio}</span>}
             </div>
           </div>
+=======
+          <div className="episodi-numero">
+            {episodi.numero}
+          </div>
+          <div className="episodi-info-principal">
+            <h3>{episodi.titol}</h3>
+            <div className="episodi-metadades">
+              <span>📅 {episodi.dataEstrena || "Data desconeguda"}</span>
+              <span>⏱️ {episodi.durada || "45 min"}</span>
+              {episodi.valoracio && <span>⭐ {episodi.valoracio}</span>}
+            </div>
+          </div>
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
           <button 
             className="episodi-expandir-btn"
             onClick={handleExpandirClick}
@@ -44,6 +68,7 @@ function EpisodiCard({ episodi }) {
             {expandit ? "▲" : "▼"}
           </button>
         </div>
+<<<<<<< HEAD
 
         <div className="episodi-resum">
           <p className="episodi-descripcio">{obtenirResumSenseSpoiler(episodi.descripcio)}</p>
@@ -56,6 +81,24 @@ function EpisodiCard({ episodi }) {
               <p>{episodi.descripcio}</p>
             </div>
 
+=======
+
+        {/* Resum sense spoiler - sempre visible */}
+        <div className="episodi-resum">
+          <p className="episodi-descripcio">{obtenirResumSenseSpoiler(episodi.descripcio)}</p>
+        </div>
+
+        {/* Contingut expandit - només visible quan es clica */}
+        {expandit && (
+          <div className="episodi-expandit" onClick={(e) => e.preventDefault()}>
+            {/* Sinopsi completa */}
+            <div className="episodi-sinopsi">
+              <h4>📖 Sinopsi completa</h4>
+              <p>{episodi.descripcio}</p>
+            </div>
+
+            {/* Personatges que apareixen */}
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
             {episodi.personatges && episodi.personatges.length > 0 && (
               <div className="episodi-personatges">
                 <h4>👥 Personatges</h4>
@@ -65,7 +108,11 @@ function EpisodiCard({ episodi }) {
                       key={personatge.id} 
                       to={`/personatge/${personatge.id}`}
                       className="episodi-tag"
+<<<<<<< HEAD
                       onClick={handleTagClick}
+=======
+                      onClick={(e) => e.stopPropagation()}
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
                     >
                       {personatge.nom}
                     </Link>
@@ -74,6 +121,10 @@ function EpisodiCard({ episodi }) {
               </div>
             )}
 
+<<<<<<< HEAD
+=======
+            {/* Entitats que apareixen */}
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
             {episodi.entitats && episodi.entitats.length > 0 && (
               <div className="episodi-entitats">
                 <h4>🐉 Entitats / Bestiari</h4>
@@ -83,7 +134,11 @@ function EpisodiCard({ episodi }) {
                       key={entitat.id} 
                       to={`/entitat/${entitat.id}`}
                       className="episodi-tag"
+<<<<<<< HEAD
                       onClick={handleTagClick}
+=======
+                      onClick={(e) => e.stopPropagation()}
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
                     >
                       {entitat.nom}
                       {entitat.tipus && <span className="episodi-tag-tipus">({entitat.tipus})</span>}
@@ -93,6 +148,10 @@ function EpisodiCard({ episodi }) {
               </div>
             )}
 
+<<<<<<< HEAD
+=======
+            {/* Curiositats */}
+>>>>>>> 5daae347f4e05ef3d0f5bad23e801e293b2fd28b
             {episodi.curiositats && episodi.curiositats.length > 0 && (
               <div className="episodi-curiositats">
                 <h4>💡 Curiositats</h4>
