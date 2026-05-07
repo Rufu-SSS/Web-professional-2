@@ -31,13 +31,11 @@ function EpisodiDetall() {
           </div>
         </div>
 
-        {/* Sinopsi completa */}
         <div className="episodi-detall-sinopsi">
           <h2>📖 Sinopsi completa</h2>
           <p>{episodi.descripcio}</p>
         </div>
 
-        {/* Personatges que apareixen */}
         {episodi.personatges && episodi.personatges.length > 0 && (
           <div className="episodi-detall-personatges">
             <h2>👥 Personatges</h2>
@@ -55,7 +53,6 @@ function EpisodiDetall() {
           </div>
         )}
 
-        {/* Entitats que apareixen */}
         {episodi.entitats && episodi.entitats.length > 0 && (
           <div className="episodi-detall-entitats">
             <h2>🐉 Entitats</h2>
@@ -74,7 +71,6 @@ function EpisodiDetall() {
           </div>
         )}
 
-        {/* Curiositats */}
         {episodi.curiositats && episodi.curiositats.length > 0 && (
           <div className="episodi-detall-curiositats">
             <h2>💡 Curiositats</h2>
@@ -86,7 +82,6 @@ function EpisodiDetall() {
           </div>
         )}
 
-        {/* Botó de retorn */}
         <div className="episodi-detall-actions">
           <Link to="/episodis" className="episodi-detall-tornar">
             ← Tornar als episodis

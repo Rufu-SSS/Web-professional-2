@@ -98,7 +98,6 @@ function EpisodiCard({ episodi }) {
               </div>
             )}
 
-            {/* Botó "Més informació" - ARA ÉS L'ÚNIC ENLLAÇ EXTERIOR */}
             <div className="episodi-actions">
               <Link to={`/episodis/${episodi.id}`} className="episodi-veure-btn">
                 Més informació →
