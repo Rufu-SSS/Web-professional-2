@@ -16,6 +16,9 @@ import { FiltreProvider } from './context/FiltreContext';
 import CercaGlobal from './pages/CercaGlobal';
 import Favorits from './pages/Favorits';
 import EpisodiDetall from './pages/EpisodiDetall';
+import PersonatgeDetall from './pages/PersonatgeDetall';
+import EntitatDetall from './pages/EntitatDetall';
+
 
 function App() {
   return (

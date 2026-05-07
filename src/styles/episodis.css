@@ -354,3 +354,14 @@
     font-size: 0.8rem;
   }
 }
+
+/* Episodi card link */
+.episodi-card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.episodi-card-link:hover .episodi-card {
+  transform: translateX(5px);
+  border-color: var(--or);
+}

@@ -985,3 +985,289 @@ body {
     font-size: 0.7rem;
   }
 }
+
+/* ────────── PÀGINES DE DETALL ────────── */
+.detall-personatge,
+.detall-entitat {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detall-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.detall-header h1 {
+  margin: 0;
+  border-bottom: none;
+}
+
+.detall-badge {
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.detall-contingut {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.detall-imatge {
+  flex: 0 0 250px;
+}
+
+.detall-imatge img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--taronja);
+}
+
+.detall-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detall-camp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--taronja);
+}
+
+.detall-camp strong {
+  color: var(--or);
+  min-width: 100px;
+}
+
+.detall-camp span {
+  color: var(--text);
+}
+
+.detall-seccio {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--taronja);
+}
+
+.detall-seccio h2 {
+  color: var(--or);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.detall-llista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detall-llista li {
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+.detall-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.detall-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.detall-tornar {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.detall-tornar:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
+
+/* Enllaç de la targeta sencera */
+.episodi-card-link {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.episodi-card-link:hover .episodi-card {
+  transform: translateX(5px);
+  border-color: var(--or);
+}
+
+/* Assegurar que els enllaços interns es vegin diferents */
+.episodi-tag {
+  display: inline-block;
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--or);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.episodi-tag:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
+
+/* Pàgines de detall */
+.detall-personatge, .detall-entitat {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detall-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.detall-header h1 {
+  margin: 0;
+  border-bottom: none;
+}
+
+.detall-badge {
+  background: var(--taronja);
+  color: var(--fons);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.detall-contingut {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.detall-imatge {
+  flex: 0 0 250px;
+}
+
+.detall-imatge img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--taronja);
+}
+
+.detall-info {
+  flex: 1;
+}
+
+.detall-camp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--taronja);
+}
+
+.detall-camp strong {
+  color: var(--or);
+  min-width: 100px;
+}
+
+.detall-seccio {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--taronja);
+}
+
+.detall-seccio h2 {
+  color: var(--or);
+  font-size: 1.3rem;
+}
+
+.detall-llista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detall-llista li {
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+}
+
+.detall-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--fons2);
+  border: 1px solid var(--taronja);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.detall-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.detall-tornar {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--taronja);
+  color: var(--or);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.detall-tornar:hover {
+  background: var(--taronja);
+  color: var(--fons);
+}
